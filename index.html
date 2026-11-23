@@ -1,753 +1,480 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rayane Halim - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rayane Halim – Étudiant Data (SQL, PL/SQL, Python) · Stage mars–juin 2027</title>
+    <meta name="description" content="Portfolio de Rayane Halim, étudiant en BUT Informatique (parcours données) à l'IUT d'Amiens : bases de données, SQL, PL/SQL et Python. Recherche un stage Data du 1er mars au 4 juin 2027.">
+    <meta name="author" content="Rayane Halim">
+    <link rel="canonical" href="https://rayane-hlm.github.io/">
+    <meta name="theme-color" content="#0f172a">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap');
+    <!-- Aperçu LinkedIn / réseaux sociaux (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Rayane Halim – Portfolio">
+    <meta property="og:url" content="https://rayane-hlm.github.io/">
+    <meta property="og:title" content="Rayane Halim – Étudiant Data · Stage mars–juin 2027">
+    <meta property="og:description" content="Bases de données, SQL, PL/SQL et Python. Mes projets, mon parcours et mon CV.">
+    <meta property="og:image" content="https://rayane-hlm.github.io/assets/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Rayane Halim – Étudiant Data, stage de mars à juin 2027">
+    <meta name="twitter:card" content="summary_large_image">
 
-        ::selection {
-            background-color: #dbeafe;
-            color: #1e3a8a;
-        }
-        
-        .font-jetbrains {
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        .custom-scrollbar::-webkit-scrollbar { height: 8px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: #f8fafc; border-radius: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
-        .custom-scrollbar { scrollbar-width: thin; scrollbar-color: #e2e8f0 #f8fafc; }
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="assets/fonts/jetbrains-mono-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>document.documentElement.classList.add('js')</script>
 
-        .blob-shape {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation: morph 8s ease-in-out infinite;
-        }
-
-        @keyframes morph {
-            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-        }
-
-        .shape-maquette {
-            clip-path: url(#smooth-mask);
-            -webkit-clip-path: url(#smooth-mask);
-        }
-
-        .loader-text-reveal {
-            transform: translateY(20px);
-            opacity: 0;
-            animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        
-        .loader-progress-bar {
-            transform: translateX(-100%);
-            animation: fillProgress 2s cubic-bezier(0.7, 0, 0.3, 1) forwards;
-            animation-delay: 0.3s;
-        }
-
-        @keyframes slideUpFade {
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        @keyframes fillProgress {
-            100% { transform: translateX(0); }
-        }
-
-        /* Effet de zoom sur les miniatures de la galerie */
-        .gallery-thumb {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .gallery-thumb:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Rayane Halim",
+        "url": "https://rayane-hlm.github.io/",
+        "jobTitle": "Étudiant en BUT Informatique – profil Data",
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "IUT d'Amiens" },
+        "knowsAbout": ["SQL", "PL/SQL", "Python", "PostgreSQL", "Modélisation de bases de données"],
+        "sameAs": ["https://github.com/Rayane-hlm", "https://www.linkedin.com/in/rayane-halim-6616b6383/"]
+    }
+    </script>
 </head>
-<body class="min-h-screen bg-[#fafafa] text-slate-800 font-sans selection:bg-blue-100 selection:text-blue-900 overflow-hidden">
+<body class="min-h-screen bg-[#fafafa] text-slate-800 font-sans antialiased">
 
-    <div id="loader" class="fixed inset-0 z-[300] bg-slate-900 flex flex-col items-center justify-center transition-opacity duration-700 ease-in-out">
-        <div class="loader-text-reveal mb-6">
-            <span class="text-4xl font-bold text-white tracking-widest font-jetbrains">
-                R<span class="text-blue-500">H</span><span class="text-blue-500">.</span>
-            </span>
-        </div>
-        <div class="w-48 md:w-64 h-[2px] bg-slate-800 rounded-full overflow-hidden opacity-0 animate-[fadeIn_0.5s_ease-out_0.5s_forwards]">
-            <div class="loader-progress-bar h-full w-full bg-blue-500 rounded-full shadow-[0_0_10px_rgba(37,99,235,0.8)]"></div>
-        </div>
-    </div>
-
-    <style>
-        @keyframes fadeIn { to { opacity: 1; } }
-    </style>
-
-    <svg style="width: 0; height: 0; position: absolute;" aria-hidden="true" focusable="false">
+<!-- SPRITE:START -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></symbol><symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></symbol><symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></symbol><symbol id="i-building" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2" ry="2" /><path d="M9 22v-4h6v4" /><path d="M8 6h.01" /><path d="M16 6h.01" /><path d="M12 6h.01" /><path d="M12 10h.01" /><path d="M12 14h.01" /><path d="M16 10h.01" /><path d="M16 14h.01" /><path d="M8 10h.01" /><path d="M8 14h.01" /></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" /><circle cx="12" cy="13" r="3" /></symbol><symbol id="i-chart-column" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16" /><path d="M18 17V9" /><path d="M13 17V5" /><path d="M8 17v-3" /></symbol><symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol><symbol id="i-code-xml" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></symbol><symbol id="i-compass" viewBox="0 0 24 24"><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /><circle cx="12" cy="12" r="10" /></symbol><symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></symbol><symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></symbol><symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></symbol><symbol id="i-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /><path d="M22 10v6" /><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></symbol><symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></symbol><symbol id="i-scan-text" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2" /><path d="M17 3h2a2 2 0 0 1 2 2v2" /><path d="M21 17v2a2 2 0 0 1-2 2h-2" /><path d="M7 21H5a2 2 0 0 1-2-2v-2" /><path d="M7 8h8" /><path d="M7 12h10" /><path d="M7 16h6" /></symbol><symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" /><path d="m21.854 2.147-10.94 10.939" /></symbol><symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /><rect width="20" height="8" x="2" y="14" rx="2" ry="2" /><line x1="6" x2="6.01" y1="6" y2="6" /><line x1="6" x2="6.01" y1="18" y2="18" /></symbol><symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /><path d="M20 3v4" /><path d="M22 5h-4" /><path d="M4 17v2" /><path d="M5 18H3" /></symbol><symbol id="i-table" viewBox="0 0 24 24"><path d="M12 3v18" /><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M3 9h18" /><path d="M3 15h18" /></symbol><symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" /><circle cx="7.5" cy="7.5" r=".5" fill="currentColor" /></symbol><symbol id="i-terminal" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5" /><line x1="12" x2="20" y1="19" y2="19" /></symbol><symbol id="i-train-front" viewBox="0 0 24 24"><path d="M8 3.1V7a4 4 0 0 0 8 0V3.1" /><path d="m9 15-1-1" /><path d="m15 15 1-1" /><path d="M9 19c-2.8 0-5-2.2-5-5v-4a8 8 0 0 1 16 0v4c0 2.8-2.2 5-5 5Z" /><path d="m8 19-2 3" /><path d="m16 19 2 3" /></symbol><symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" /><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" /><path d="M4 22h16" /><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" /><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" /><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" /></symbol><symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></symbol><symbol id="i-workflow" viewBox="0 0 24 24"><rect width="8" height="8" x="3" y="3" rx="2" /><path d="M7 11v4a2 2 0 0 0 2 2h4" /><rect width="8" height="8" x="13" y="13" rx="2" /></symbol><symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></symbol></svg>
+<!-- SPRITE:END -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
         <clipPath id="smooth-mask" clipPathUnits="objectBoundingBox">
             <path d="M 0.15,0.08 C 0.4,-0.05 0.6,0.15 0.9,0.05 C 0.98,0.02 1,0.08 1,0.15 L 1,0.9 C 1,0.93 0.98,0.95 0.95,0.95 C 0.9,0.95 0.85,0.85 0.8,0.85 C 0.75,0.85 0.7,0.98 0.65,0.98 C 0.6,0.98 0.55,0.85 0.5,0.85 C 0.45,0.85 0.4,1 0.35,1 C 0.3,1 0.25,0.85 0.2,0.85 C 0.15,0.85 0.05,0.98 0.02,0.98 C 0,0.98 0.15,0.8 0.15,0.75 C 0.15,0.7 0.02,0.65 0.02,0.6 C 0.02,0.55 0.25,0.5 0.25,0.45 C 0.25,0.4 0,0.3 0,0.25 C 0,0.2 0.15,0.15 0.15,0.08 Z"></path>
         </clipPath>
     </svg>
 
-    <div class="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-100/50 rounded-full blur-3xl pointer-events-none -z-10"></div>
-    <div class="fixed top-[20%] right-[-5%] w-[30%] h-[50%] bg-indigo-50/50 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-slate-900 focus:text-white focus:rounded-md">Aller au contenu</a>
 
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-6">
-        <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
-            <div class="font-bold text-xl tracking-tight text-slate-900 flex items-center gap-2">
-                <div class="w-3 h-3 bg-blue-600 rounded-sm transform rotate-45"></div>
+    <div id="progress" class="reading-progress" aria-hidden="true"></div>
+
+    <div class="bg-blob fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-100/50 rounded-full blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+    <div class="bg-blob bg-blob--slow fixed top-[20%] right-[-5%] w-[30%] h-[50%] bg-indigo-50/60 rounded-full blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+
+    <!-- ============ NAVIGATION ============ -->
+    <header id="navbar" class="navbar fixed inset-x-0 top-0 z-50">
+        <nav class="max-w-5xl mx-auto px-6 flex justify-between items-center" aria-label="Navigation principale">
+            <a href="#accueil" class="font-bold text-xl tracking-tight text-slate-900 flex items-center gap-2">
+                <span class="w-3 h-3 bg-blue-600 rounded-sm rotate-45" aria-hidden="true"></span>
                 Rayane Halim
-            </div>
-            <div class="hidden md:flex space-x-8 text-sm font-semibold text-slate-500">
-                <a href="#propos" class="hover:text-blue-600 transition-colors">À propos</a>
-                <a href="#parcours" class="hover:text-blue-600 transition-colors">Parcours</a>
-                <a href="#outils" class="hover:text-blue-600 transition-colors">Outils</a>
-                <a href="#projets" class="hover:text-blue-600 transition-colors">Projets</a>
-                <a href="#bilan-but" class="hover:text-blue-600 transition-colors">Bilan BUT</a>
-                <a href="#vision" class="hover:text-blue-600 transition-colors">Vision</a>
-                <a href="#recommandations" class="hover:text-blue-600 transition-colors">Témoignages</a>
-            </div>
-            <a href="#contact" class="hidden md:flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-md hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-600/20 transition-all">
+            </a>
+            <ul class="hidden md:flex gap-7 text-sm font-semibold text-slate-600">
+                <li><a href="#projets" class="nav-link">Projets</a></li>
+                <li><a href="#competences" class="nav-link">Compétences</a></li>
+                <li><a href="#parcours" class="nav-link">Parcours</a></li>
+                <li><a href="#propos" class="nav-link">À propos</a></li>
+                <li><a href="#bilan-but" class="nav-link">Bilan BUT</a></li>
+            </ul>
+            <a href="#contact" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-md hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-600/20 transition-all">
                 Me contacter
             </a>
+            <button id="menu-btn" type="button" class="md:hidden -mr-2 p-2 rounded-md text-slate-900 hover:bg-slate-100" aria-expanded="false" aria-controls="mobile-menu">
+                <span class="sr-only">Ouvrir le menu</span>
+                <svg class="icon w-6 h-6 menu-icon-open" aria-hidden="true"><use href="#i-menu"></use></svg>
+                <svg class="icon w-6 h-6 menu-icon-close" aria-hidden="true"><use href="#i-x"></use></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-md" hidden>
+            <ul class="max-w-5xl mx-auto px-6 py-4 flex flex-col text-base font-semibold text-slate-700">
+                <li><a href="#projets" class="block py-3">Projets</a></li>
+                <li><a href="#competences" class="block py-3">Compétences</a></li>
+                <li><a href="#parcours" class="block py-3">Parcours</a></li>
+                <li><a href="#propos" class="block py-3">À propos</a></li>
+                <li><a href="#bilan-but" class="block py-3">Bilan BUT</a></li>
+                <li class="pt-3"><a href="#contact" class="flex justify-center px-5 py-3 bg-slate-900 text-white rounded-md">Me contacter</a></li>
+            </ul>
         </div>
-    </nav>
+    </header>
 
-    <main class="pt-32 pb-20">
-        
-        <section class="px-6 mb-32 pt-10">
-            <div class="max-w-5xl mx-auto">
-                <div class="flex flex-col md:flex-row items-center gap-16">
-                    <div class="w-48 h-48 md:w-72 md:h-72 shrink-0 blob-shape overflow-hidden border-[8px] border-white shadow-2xl shadow-slate-200/50 bg-slate-100 relative group">
-                        <img src="rayane.png" class="w-full h-full object-cover" alt="Rayane">
-                        <div class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                    <div>
-                        <div class="inline-flex items-center gap-3 px-4 py-2 rounded-md bg-blue-50 text-blue-700 text-xs font-bold tracking-wide uppercase mb-6 border border-blue-200 shadow-sm">
-                            <span class="relative flex h-2.5 w-2.5">
-                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-600"></span>
+    <main id="main" tabindex="-1">
+
+        <!-- ============ HERO ============ -->
+        <section id="accueil" class="relative px-6 pt-28 md:pt-44 pb-20 md:pb-28 overflow-hidden">
+            <div class="hero-grid" aria-hidden="true"></div>
+            <div class="max-w-5xl mx-auto relative">
+                <div class="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16">
+                    <div class="flex-1 text-center md:text-left">
+                        <p class="hero-in inline-flex flex-wrap justify-center items-center gap-x-3 gap-y-1 px-4 py-2 rounded-md bg-blue-50 text-blue-700 text-xs font-bold tracking-wide uppercase mb-6 border border-blue-200 shadow-sm">
+                            <span class="relative flex h-2.5 w-2.5" aria-hidden="true">
+                                <span class="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-600"></span>
                             </span>
                             Disponible pour un stage
-                        </div>
-                        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.15]">
-                            Bonjour, je suis Rayane.<br/>
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">J'organise l'invisible.</span>
-                        </h1>
-                        <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl font-medium">
-                            Étudiant en BUT 3 Informatique à l'IUT d'Amiens, je suis actuellement à la recherche d'un stage en tant que <strong class="text-slate-900">Data Analyst</strong>. Mon objectif professionnel est d'exploiter la donnée pour en tirer des insights pertinents et accompagner la prise de décision stratégique.
+                            <span class="font-jetbrains normal-case tracking-normal text-blue-800">1er mars → 4 juin 2027</span>
                         </p>
 
-                        <div class="flex flex-wrap gap-4">
-                            <a href="#propos" class="flex items-center gap-2 px-6 py-3 bg-white text-slate-900 border border-slate-200 font-semibold rounded-md hover:border-slate-300 hover:bg-slate-50 transition-all group shadow-sm">
-                                Découvrir mon univers
-                                <i data-lucide="arrow-down" class="w-4 h-4 transform transition-transform group-hover:translate-y-1 text-slate-400"></i>
+                        <h1 class="hero-in [--d:80ms] text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.12]">
+                            Étudiant en informatique,<br>
+                            <span class="whitespace-nowrap">profil
+                                <span class="sr-only">Data : SQL, PL/SQL et Python</span>
+                                <span id="typed" class="text-gradient font-jetbrains" aria-hidden="true" data-words='["Data", "SQL", "PL/SQL", "Python", "BDD"]'>Data</span><span class="caret" aria-hidden="true"></span>
+                            </span>
+                        </h1>
+
+                        <p class="hero-in [--d:160ms] text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl font-medium mx-auto md:mx-0">
+                            Je suis <strong class="text-slate-900">Rayane Halim</strong>, en 3<sup>e</sup> année de BUT Informatique à l'IUT d'Amiens (parcours données).
+                            Je conçois des bases de données, j'écris du SQL et du PL/SQL et je développe en Python.
+                            Je cherche un <strong class="text-slate-900">stage Data</strong> de mars à juin 2027.
+                        </p>
+
+                        <div class="hero-in [--d:240ms] flex flex-wrap justify-center md:justify-start gap-3 mb-8">
+                            <a href="assets/CV_Rayane_HALIM.pdf" download class="btn btn-primary">
+                                <svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-download"></use></svg>
+                                Télécharger mon CV
+                            </a>
+                            <a href="#contact" class="btn btn-secondary">
+                                <svg class="icon w-4 h-4 text-slate-500" aria-hidden="true"><use href="#i-mail"></use></svg>
+                                Me contacter
+                            </a>
+                            <a href="#projets" class="btn btn-ghost group">
+                                Voir mes projets
+                                <svg class="icon w-4 h-4 transition-transform group-hover:translate-y-0.5" aria-hidden="true"><use href="#i-arrow-down"></use></svg>
                             </a>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-<section id="propos" class="py-24 bg-white border-y border-slate-100 px-6 relative overflow-hidden">
-            <div class="max-w-5xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-md flex items-center justify-center mb-6">
-                            <i data-lucide="user" class="w-6 h-6"></i>
-                        </div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-2">Qui suis-je vraiment ?</h2>
-                        <p class="text-slate-500 mb-10 font-medium"></p>
-                        
-                        <div class="space-y-6 text-slate-600 leading-relaxed text-lg">
-                            <p>
-                                Je m'appelle Rayane, je suis étudiant en BUT Informatique, et si je devais résumer ma personnalité : <strong>je suis quelqu'un de curieux, de persévérant et de profondément attaché à l'entraide</strong>. Pour moi, l'informatique n'est pas qu'une question de machines, c'est avant tout un travail d'équipe.
-                            </p>
-                            <p>
-                                Mes valeurs principales sont <strong>la rigueur, la fiabilité et le respect des engagements</strong>. Quand je m'investis dans un projet (que ce soit concevoir une base de données ou aider un camarade), j'aime que le travail soit fait proprement et jusqu'au bout. J'accorde beaucoup d'importance à la confiance qu'on me donne.
-                            </p>
-                            <p>
-                                Ma petite faiblesse attachante ? Je suis parfois tellement concentré et têtu face à un problème technique que je peux totalement oublier la notion du temps (et de manger !). Mais c'est aussi ce qui fait ma force : je lâche rarement l'affaire avant d'avoir trouvé la solution.
-                            </p>
-                            <p>
-                                C'est cette envie d'apprendre et de partager qui m'a poussé à donner des <strong>cours particuliers</strong>. Transmettre mes connaissances avec patience et écoute m'a permis de progresser, tout en gardant un vrai lien humain.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="relative flex justify-center lg:justify-end items-center w-full h-full" style="filter: drop-shadow(-10px 15px 25px rgba(0, 0, 0, 0.15)); will-change: transform;">
-                        <div class="w-full max-w-[450px] aspect-[4/5] bg-slate-200 shape-maquette flex flex-col items-center justify-center relative">
-                            <img src="rayane2.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Rayane">
-                        </div>
-                    </div>
-                </div>
 
-                <div class="mt-24 flex flex-col items-center">
-                    <button id="toggle-passions" class="text-xl font-bold text-slate-900 border-b-2 border-slate-900 pb-1 hover:text-blue-600 hover:border-blue-600 transition-colors flex items-center gap-2 outline-none cursor-pointer">
-                        Au-delà de l'écran
-                    </button>
-                    
-                    <div id="passions-content" class="w-full max-w-4xl mt-12 grid md:grid-cols-2 gap-8 hidden opacity-0 transition-all duration-500 transform translate-y-4">
-                        
-                        <div class="flex gap-5 group bg-[#fafafa] p-8 rounded-xl border border-slate-100 shadow-sm hover:border-blue-200 transition-colors items-start">
-                            <div class="w-12 h-12 mt-1 rounded-md bg-white border border-slate-200 flex items-center justify-center shrink-0 group-hover:border-blue-500 group-hover:text-blue-600 transition-colors shadow-sm">
-                                <i data-lucide="trophy" class="w-5 h-5 text-slate-400 group-hover:text-blue-500 transition-colors"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 text-xl mb-3">Football (FC Creil)</h4>
-                                <p class="text-slate-600 leading-relaxed text-sm">
-                                    Pratiquant en compétition régionale au FC Creil, le terrain m'apprend la gestion de la pression, la résilience et la force du collectif. Pour moi, un projet informatique c'est comme un match : on ne gagne jamais seul. Savoir communiquer sous tension et se coordonner pour atteindre un objectif commun sont des compétences aussi cruciales que de savoir coder.
-                                </p>
-                            </div>
-                        </div>
+                        <ul class="hero-in [--d:320ms] flex flex-wrap justify-center md:justify-start items-center gap-x-5 gap-y-2 text-sm text-slate-600">
+                            <li><a href="https://github.com/Rayane-hlm" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-blue-600"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-github"></use></svg>GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/rayane-halim-6616b6383/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-blue-600"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-linkedin"></use></svg>LinkedIn</a></li>
+                            <li class="inline-flex items-center gap-1.5"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-map-pin"></use></svg>Creil / Amiens · Permis B, véhiculé</li>
+                        </ul>
+                    </div>
 
-                        <div class="flex gap-5 group bg-[#fafafa] p-8 rounded-xl border border-slate-100 shadow-sm hover:border-blue-200 transition-colors items-start">
-                            <div class="w-12 h-12 mt-1 rounded-md bg-white border border-slate-200 flex items-center justify-center shrink-0 group-hover:border-blue-500 group-hover:text-blue-600 transition-colors shadow-sm">
-                                <i data-lucide="camera" class="w-5 h-5 text-slate-400 group-hover:text-blue-500 transition-colors"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 text-xl mb-3">Photographie & Montage</h4>
-                                <p class="text-slate-600 leading-relaxed text-sm">
-                                    Derrière l'objectif ou sur mon logiciel de montage, je me plonge dans un processus créatif qui exige patience et sens du détail. Cette recherche du bon rythme et de l'esthétique parfaite se retrouve dans ma façon de structurer mon code et mes bases de données : tout doit être propre et harmonieux.
-                                </p>
-                            </div>
-                        </div>
-
+                    <div class="hero-in [--d:120ms] w-36 h-36 sm:w-52 sm:h-52 md:w-72 md:h-72 shrink-0 blob-shape overflow-hidden border-[8px] border-white shadow-2xl shadow-slate-300/50 bg-slate-100">
+                        <img src="assets/img/rayane-portrait-640.webp"
+                             srcset="assets/img/rayane-portrait-320.webp 320w, assets/img/rayane-portrait-640.webp 640w"
+                             sizes="(min-width: 768px) 288px, 208px"
+                             width="640" height="452" fetchpriority="high"
+                             class="w-full h-full object-cover" alt="Portrait de Rayane Halim">
                     </div>
                 </div>
             </div>
         </section>
 
-  <section id="parcours" class="py-24 px-6"> 
-
-    <div class="max-w-4xl mx-auto">
-
-        <div class="flex flex-col items-center text-center mb-16">
-            <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-md flex items-center justify-center mb-4 transform -rotate-3">
-                <i data-lucide="map" class="w-6 h-6"></i>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-900">
-                Mon parcours
-            </h2>
-        </div>
-
-        <div class="hidden md:flex justify-between items-center mb-10 px-4">
-            <div class="flex items-center gap-2 text-sm font-semibold text-slate-500 uppercase tracking-wide">
-                <i data-lucide="graduation-cap" class="w-4 h-4 text-slate-400"></i>
-                Formations
-            </div>
-            <div class="flex items-center gap-2 text-sm font-semibold text-slate-500 uppercase tracking-wide">
-                Expérience Pro
-                <i data-lucide="briefcase" class="w-4 h-4 text-slate-400"></i>
-            </div>
-        </div>
-
-        <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-slate-100 before:via-slate-200 before:to-slate-100">
-
-            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div class="flex items-center justify-center w-10 h-10 rounded-md border-4 border-[#fafafa] bg-blue-600 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 shadow-md shadow-blue-600/20">
-                    <i data-lucide="server" class="w-4 h-4"></i>
-                </div>
-                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white p-8 rounded-lg shadow-sm border border-slate-100">
-                    <span class="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-sm mb-4">
-                        Janvier 2026
-                    </span>
-                    <h4 class="font-bold text-xl text-slate-900 mb-1">Stage Administrateur Système</h4>
-                    <span class="text-sm font-medium text-slate-400 mb-4 flex items-center gap-1">
-                        <i data-lucide="building" class="w-3 h-3"></i> ISICOM
-                    </span>
-                    <p class="text-slate-600 mb-6 leading-relaxed">
-                        Gestion et sécurisation des infrastructures clients.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 text-slate-600 text-xs font-semibold rounded-sm">ZABBIX</span>
-                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 text-slate-600 text-xs font-semibold rounded-sm">pfSense</span>
-                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-100 text-slate-600 text-xs font-semibold rounded-sm">GLPI</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div class="flex items-center justify-center w-10 h-10 rounded-md border-4 border-[#fafafa] bg-white border-slate-200 text-slate-500 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 shadow-sm">
-                    <i data-lucide="graduation-cap" class="w-4 h-4"></i>
-                </div>
-                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white p-8 rounded-lg shadow-sm border border-slate-100">
-                    <span class="inline-block px-3 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-sm mb-4">
-                        2024 – 2027
-                    </span>
-                    <h4 class="font-bold text-xl text-slate-900 mb-1">BUT Informatique</h4>
-                    <span class="text-sm font-medium text-slate-400 mb-4 flex items-center gap-1">
-                        <i data-lucide="map-pin" class="w-3 h-3"></i> IUT d'Amiens
-                    </span>
-                    <p class="text-slate-600 leading-relaxed">
-                        Développement logiciel, bases de données, réseau.
-                    </p>
-                </div>
-            </div>
-
-            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div class="flex items-center justify-center w-10 h-10 rounded-md border-4 border-[#fafafa] bg-white border-slate-200 text-slate-500 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 shadow-sm">
-                    <i data-lucide="users" class="w-4 h-4"></i>
-                </div>
-                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white p-8 rounded-lg shadow-sm border border-slate-100">
-                    <span class="inline-block px-3 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-sm mb-4">
-                        Mars – Juin 2024
-                    </span>
-                    <h4 class="font-bold text-xl text-slate-900 mb-1">Soutien scolaire</h4>
-                    <span class="text-sm font-medium text-slate-400 mb-4 flex items-center gap-1">
-                        <i data-lucide="book-open" class="w-3 h-3"></i> Cours particuliers
-                    </span>
-                    <p class="text-slate-600 leading-relaxed">
-                        Pédagogie, explication et accompagnement d'élèves.
-                    </p>
-                </div>
-            </div>
-
-            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div class="flex items-center justify-center w-10 h-10 rounded-md border-4 border-[#fafafa] bg-white border-slate-200 text-slate-500 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 shadow-sm">
-                    <i data-lucide="graduation-cap" class="w-4 h-4"></i>
-                </div>
-                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white p-8 rounded-lg shadow-sm border border-slate-100">
-                    <span class="inline-block px-3 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-sm mb-4">
-                        2024
-                    </span>
-                    <h4 class="font-bold text-xl text-slate-900 mb-1">Baccalauréat Général</h4>
-                    <span class="text-sm font-medium text-slate-400 mb-4 flex items-center gap-1">
-                        <i data-lucide="map-pin" class="w-3 h-3"></i> Lycée Jules Uhry — Creil
-                    </span>
-                    <p class="text-slate-600 text-sm leading-relaxed">Spécialité NSI &amp; SVT</p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="mt-16 flex justify-center">
-            <button onclick="openCV()"
-                class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-md shadow-sm hover:bg-blue-700 transition">
-                <i data-lucide="file-text" class="w-4 h-4"></i>
-                Voir mon CV
-            </button>
-        </div>
-
-    </div>
-</section>
-
-<div id="cvModal" class="fixed inset-0 hidden items-center justify-center bg-black/80 z-50">
-
-    <div class="absolute inset-0" onclick="closeCV()"></div>
-
-    <div class="relative w-screen h-screen flex items-center justify-center">
-
-        <button onclick="closeCV()"
-            class="absolute top-6 right-6 text-white text-3xl z-20">
-            ✕
-        </button>
-
-        <a href="CV.pdf" download
-            class="absolute top-6 left-6 px-4 py-2 bg-white text-black rounded-md text-sm font-semibold hover:bg-gray-200">
-            Télécharger PDF
-        </a>
-
-        <img src="CV.png" class="max-w-[95vw] max-h-[95vh] object-contain" alt="CV">
-
-    </div>
-</div>
-
-<script>
-function openCV() {
-    const modal = document.getElementById("cvModal");
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-    document.body.style.overflow = "hidden";
-}
-
-function closeCV() {
-    const modal = document.getElementById("cvModal");
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-    document.body.style.overflow = "auto";
-}
-</script>
-        <section id="outils" class="py-24 px-6 bg-white border-y border-slate-100">
+        <!-- ============ PROJETS ============ -->
+        <section id="projets" class="py-24 px-6 bg-white border-y border-slate-100">
             <div class="max-w-5xl mx-auto">
-                <div class="flex flex-col items-center text-center mb-16">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-md flex items-center justify-center mb-4 transform -rotate-3">
-                        <i data-lucide="wrench" class="w-6 h-6"></i>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Ma boîte à outils</h2>
-                    <p class="text-slate-500 mt-4 max-w-xl">
-                        Les technologies que je maîtrise pour construire des architectures solides et performantes.
-                    </p>
-                </div>
-
-                <div class="mb-16 max-w-4xl mx-auto">
-                    <p class="text-xs font-bold tracking-widest text-blue-600 uppercase mb-8 flex items-center gap-3">
-                        <span class="h-px flex-1 bg-blue-100"></span> Data & Dev <span class="h-px flex-1 bg-blue-100"></span>
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-5" id="skills-dev">
-                        <div class="skill-item opacity-0 translate-y-4 duration-700 ease-out flex flex-col items-center justify-center w-[120px] h-[120px] rounded-xl bg-white border border-slate-200 hover:border-blue-200 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" class="w-12 h-12 object-contain mb-2" alt="PostgreSQL">
-                            <span class="text-xs font-semibold text-slate-500 group-hover:text-slate-700">PostgreSQL</span>
-                        </div>
-                        <div class="skill-item opacity-0 translate-y-4 duration-700 ease-out flex flex-col items-center justify-center w-[120px] h-[120px] rounded-xl bg-white border border-slate-200 hover:border-blue-200 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-12 h-12 object-contain mb-2" alt="Python">
-                            <span class="text-xs font-semibold text-slate-500 group-hover:text-slate-700">Python</span>
-                        </div>
-                        <div class="skill-item opacity-0 translate-y-4 duration-700 ease-out flex flex-col items-center justify-center w-[120px] h-[120px] rounded-xl bg-white border border-slate-200 hover:border-blue-200 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" class="w-12 h-12 object-contain mb-2" alt="C">
-                            <span class="text-xs font-semibold text-slate-500 group-hover:text-slate-700">C</span>
-                        </div>
-                        <div class="skill-item opacity-0 translate-y-4 duration-700 ease-out flex flex-col items-center justify-center w-[120px] h-[120px] rounded-xl bg-white border border-slate-200 hover:border-blue-200 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="w-12 h-12 object-contain mb-2" alt="C++">
-                            <span class="text-xs font-semibold text-slate-500 group-hover:text-slate-700">C++</span>
-                        </div>
-                        <div class="skill-item opacity-0 translate-y-4 duration-700 ease-out flex flex-col items-center justify-center w-[120px] h-[120px] rounded-xl bg-white border border-slate-200 hover:border-blue-200 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" class="w-12 h-12 object-contain mb-2" alt="C#">
-                            <span class="text-xs font-semibold text-slate-500 group-hover:text-slate-700">C#</span>
-                        </div>
-                        <div class="skill-item opacity-0 translate-y-4 duration-700 ease-out flex flex-col items-center justify-center w-[120px] h-[120px] rounded-xl bg-white border border-slate-200 hover:border-blue-200 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-12 h-12 object-contain mb-2" alt="Git">
-                            <span class="text-xs font-semibold text-slate-500 group-hover:text-slate-700">Git</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-16 max-w-4xl mx-auto">
-                    <p class="text-xs font-bold tracking-widest text-emerald-600 uppercase mb-8 flex items-center gap-3">
-                        <span class="h-px flex-1 bg-emerald-100"></span> Infrastructures <span class="h-px flex-1 bg-emerald-100"></span>
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-5" id="skills-infra">
-                        <div class="skill-item opacity-0 translate-y-4 duration-700 ease-out flex flex-col items-center justify-center w-[120px] h-[120px] rounded-xl bg-white border border-slate-200 hover:border-emerald-200 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="w-12 h-12 object-contain mb-2" alt="Linux">
-                            <span class="text-xs font-semibold text-slate-500 group-hover:text-slate-700">Linux</span>
-                        </div>
-                        <div class="skill-item opacity-0 translate-y-4 duration-700 ease-out flex flex-col items-center justify-center w-[120px] h-[120px] rounded-xl bg-white border border-slate-200 hover:border-emerald-200 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                            <img src="Zabbix.png" class="w-12 h-12 object-contain mb-2" alt="Zabbix">
-                            <span class="text-xs font-semibold text-slate-500 group-hover:text-slate-700">Zabbix</span>
-                        </div>
-                        <div class="skill-item opacity-0 translate-y-4 duration-700 ease-out flex flex-col items-center justify-center w-[120px] h-[120px] rounded-xl bg-white border border-slate-200 hover:border-emerald-200 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                            <img src="pfsense.png" class="w-12 h-12 object-contain mb-2" alt="pfSense">
-                            <span class="text-xs font-semibold text-slate-500 group-hover:text-slate-700">pfSense</span>
-                        </div>
-                        <div class="skill-item opacity-0 translate-y-4 duration-700 ease-out flex flex-col items-center justify-center w-[120px] h-[120px] rounded-xl bg-white border border-slate-200 hover:border-emerald-200 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                            <img src="glpi.png" class="w-12 h-12 object-contain mb-2" alt="GLPI">
-                            <span class="text-xs font-semibold text-slate-500 group-hover:text-slate-700">GLPI</span>
-                        </div>
-                        <div class="skill-item opacity-0 translate-y-4 duration-700 ease-out flex flex-col items-center justify-center w-[120px] h-[120px] rounded-xl bg-white border border-slate-200 hover:border-emerald-200 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                            <img src="unifi.png" class="w-12 h-12 object-contain mb-2 rounded-md" alt="Unifi">
-                            <span class="text-xs font-semibold text-slate-500 group-hover:text-slate-700">Unifi</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="max-w-4xl mx-auto">
-                    <p class="text-xs font-bold tracking-widest text-purple-600 uppercase mb-8 flex items-center gap-3">
-                        <span class="h-px flex-1 bg-purple-100"></span> Conception <span class="h-px flex-1 bg-purple-100"></span>
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-5" id="skills-design">
-                        <div class="skill-item opacity-0 translate-y-4 duration-700 ease-out flex flex-col items-center justify-center w-[120px] h-[120px] rounded-xl bg-white border border-slate-200 hover:border-purple-200 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="w-12 h-12 object-contain mb-2" alt="Figma">
-                            <span class="text-xs font-semibold text-slate-500 group-hover:text-slate-700">Figma</span>
-                        </div>
-                        <div class="skill-item opacity-0 translate-y-4 duration-700 ease-out flex flex-col items-center justify-center w-[120px] h-[120px] rounded-xl bg-white border border-slate-200 hover:border-purple-200 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" class="w-12 h-12 object-contain mb-2" alt="Photoshop">
-                            <span class="text-xs font-semibold text-slate-500 group-hover:text-slate-700">Photoshop</span>
-                        </div>
-                        <div class="skill-item opacity-0 translate-y-4 duration-700 ease-out flex flex-col items-center justify-center w-[120px] h-[120px] rounded-xl bg-white border border-slate-200 hover:border-purple-200 hover:shadow-lg hover:-translate-y-1 transition-all group">
-                            <div class="w-12 h-12 rounded-xl bg-purple-500 flex items-center justify-center text-white font-black mb-2">UML</div>
-                            <span class="text-xs font-semibold text-slate-500 group-hover:text-slate-700">UML</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-       <section id="projets" class="py-24 px-6 bg-[#fafafa] border-b border-slate-100">
-            <div class="max-w-5xl mx-auto">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div class="reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
                     <div>
-                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-md flex items-center justify-center mb-6 transform rotate-3">
-                            <i data-lucide="folder-code" class="w-6 h-6"></i>
-                        </div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Mes Réalisations</h2>
-                        <p class="text-slate-500 max-w-2xl text-lg">Mise en application concrète. La couleur de chaque projet correspond à une compétence du BUT.</p>
+                        <p class="eyebrow">01 · Projets</p>
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Mes projets data</h2>
+                        <p class="text-slate-600 max-w-2xl text-lg">Des projets où j'ai conçu, structuré ou exploité des données. Cliquez sur une carte pour voir le contexte, ce que j'ai fait, la stack et le résultat.</p>
                     </div>
-                    
-                    <a href="https://github.com/Rayane-hlm" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2.5 px-6 py-3 bg-slate-900 text-white font-semibold rounded-md hover:bg-slate-800 transition-all hover:shadow-lg hover:-translate-y-0.5 shadow-sm whitespace-nowrap">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                        </svg>
-                        <span>Mon profil GitHub</span>
+                    <a href="https://github.com/Rayane-hlm" target="_blank" rel="noopener" class="btn btn-secondary shrink-0 self-start md:self-auto">
+                        <svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-github"></use></svg>
+                        Mon GitHub
                     </a>
-                </div>
-                
-                <div class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory custom-scrollbar">
-                    
-                    <div class="shrink-0 w-[85%] md:w-[calc(50%-0.75rem)] lg:w-[320px] snap-start group bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 flex flex-col">
-                        <div class="h-28 bg-blue-500 group-hover:bg-blue-600 transition-colors"></div>
-                        <div class="p-5 flex-grow flex flex-col">
-                            <div class="flex flex-wrap gap-2 mb-3 font-jetbrains">
-                                <span class="px-2 py-1 bg-slate-100 text-slate-700 text-[9px] uppercase tracking-wider font-bold rounded-sm">Web</span>
-                                <span class="px-2 py-1 bg-slate-100 text-slate-700 text-[9px] uppercase tracking-wider font-bold rounded-sm">GPS</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2 leading-tight">Plateforme de Covoiturage</h3>
-                            <p class="text-sm text-slate-600 leading-relaxed mb-5 flex-grow">Application web permettant aux étudiants de l'IUT de trouver des trajets ou de proposer des places dans leur voiture.</p>
-                            <button onclick="openModal('modal-covoiturage')" class="mt-auto w-full py-2 bg-[#fafafa] border border-slate-200 text-slate-800 text-xs font-bold rounded-md flex items-center justify-center gap-2 group-hover:bg-blue-50 group-hover:text-blue-700 group-hover:border-blue-100 transition-colors font-jetbrains">
-                                Détails du projet <i data-lucide="eye" class="w-3.5 h-3.5"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="shrink-0 w-[85%] md:w-[calc(50%-0.75rem)] lg:w-[320px] snap-start group bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 flex flex-col">
-                        <div class="h-28 bg-yellow-400 group-hover:bg-yellow-500 transition-colors"></div>
-                        <div class="p-5 flex-grow flex flex-col">
-                            <div class="flex flex-wrap gap-2 mb-3 font-jetbrains">
-                                <span class="px-2 py-1 bg-slate-100 text-slate-700 text-[9px] uppercase tracking-wider font-bold rounded-sm">Algo</span>
-                                <span class="px-2 py-1 bg-slate-100 text-slate-700 text-[9px] uppercase tracking-wider font-bold rounded-sm">Mémoire</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2 leading-tight">Itinéraires Ferroviaires</h3>
-                            <p class="text-sm text-slate-600 leading-relaxed mb-5 flex-grow">Un programme mathématique capable de calculer le trajet en train le plus rapide entre deux gares françaises.</p>
-                            <button onclick="openModal('modal-itineraire')" class="mt-auto w-full py-2 bg-[#fafafa] border border-slate-200 text-slate-800 text-xs font-bold rounded-md flex items-center justify-center gap-2 group-hover:bg-yellow-50 group-hover:text-yellow-600 group-hover:border-yellow-200 transition-colors font-jetbrains">
-                                Détails du projet <i data-lucide="eye" class="w-3.5 h-3.5"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="shrink-0 w-[85%] md:w-[calc(50%-0.75rem)] lg:w-[320px] snap-start group bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 flex flex-col">
-                        <div class="h-28 bg-emerald-500 group-hover:bg-emerald-600 transition-colors"></div>
-                        <div class="p-5 flex-grow flex flex-col">
-                            <div class="flex flex-wrap gap-2 mb-3 font-jetbrains">
-                                <span class="px-2 py-1 bg-slate-100 text-slate-700 text-[9px] uppercase tracking-wider font-bold rounded-sm">Data</span>
-                                <span class="px-2 py-1 bg-slate-100 text-slate-700 text-[9px] uppercase tracking-wider font-bold rounded-sm">SQL</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2 leading-tight">Modélisation BDD</h3>
-                            <p class="text-sm text-slate-600 leading-relaxed mb-5 flex-grow">Conception complète et sécurisée des "plans" (l'architecture) d'une base de données professionnelle.</p>
-                            <button onclick="openModal('modal-bdd')" class="mt-auto w-full py-2 bg-[#fafafa] border border-slate-200 text-slate-800 text-xs font-bold rounded-md flex items-center justify-center gap-2 group-hover:bg-emerald-50 group-hover:text-emerald-700 group-hover:border-emerald-100 transition-colors font-jetbrains">
-                                Détails du projet <i data-lucide="eye" class="w-3.5 h-3.5"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="shrink-0 w-[85%] md:w-[calc(50%-0.75rem)] lg:w-[320px] snap-start group bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 flex flex-col">
-                        <div class="h-28 bg-purple-500 group-hover:bg-purple-600 transition-colors"></div>
-                        <div class="p-5 flex-grow flex flex-col">
-                            <div class="flex flex-wrap gap-2 mb-3 font-jetbrains">
-                                <span class="px-2 py-1 bg-slate-100 text-slate-700 text-[9px] uppercase tracking-wider font-bold rounded-sm">Sécurité</span>
-                                <span class="px-2 py-1 bg-slate-100 text-slate-700 text-[9px] uppercase tracking-wider font-bold rounded-sm">Intégrité</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2 leading-tight">Calculateur Checksum</h3>
-                            <p class="text-sm text-slate-600 leading-relaxed mb-5 flex-grow">Outil de sécurité développé en autonomie pour vérifier instantanément si un fichier téléchargé a été piraté.</p>
-                            <button onclick="openModal('modal-checksum')" class="mt-auto w-full py-2 bg-[#fafafa] border border-slate-200 text-slate-800 text-xs font-bold rounded-md flex items-center justify-center gap-2 group-hover:bg-purple-50 group-hover:text-purple-700 group-hover:border-purple-100 transition-colors font-jetbrains">
-                                Détails du projet <i data-lucide="eye" class="w-3.5 h-3.5"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="shrink-0 w-[85%] md:w-[calc(50%-0.75rem)] lg:w-[320px] snap-start group bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 flex flex-col">
-                        <div class="h-28 bg-orange-500 group-hover:bg-orange-600 transition-colors"></div>
-                        <div class="p-5 flex-grow flex flex-col">
-                            <div class="flex flex-wrap gap-2 mb-3 font-jetbrains">
-                                <span class="px-2 py-1 bg-slate-100 text-slate-700 text-[9px] uppercase tracking-wider font-bold rounded-sm">Réseau</span>
-                                <span class="px-2 py-1 bg-slate-100 text-slate-700 text-[9px] uppercase tracking-wider font-bold rounded-sm">VLAN</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2 leading-tight">Architecture Réseau</h3>
-                            <p class="text-sm text-slate-600 leading-relaxed mb-5 flex-grow">Déploiement de réseaux virtuels (VLAN) pour sécuriser les téléphones et ordinateurs chez les clients.</p>
-                            
-                            <div class="mt-auto flex gap-2">
-                                <button onclick="openModal('modal-isicom')" class="flex-1 py-2 bg-[#fafafa] border border-slate-200 text-slate-800 text-xs font-bold rounded-md flex items-center justify-center gap-2 group-hover:bg-orange-50 group-hover:text-orange-700 group-hover:border-orange-100 transition-colors font-jetbrains">
-                                    Détails du projet<i data-lucide="eye" class="w-3.5 h-3.5"></i>
-                                </button>
-                                <a href="Résumé détailler.pdf" download="Résumé détailler.pdf" title="Télécharger le résumé détaillé" class="px-4 py-2 bg-[#fafafa] border border-slate-200 text-slate-800 text-xs font-bold rounded-md flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 transition-colors">
-                                    <i data-lucide="download" class="w-3.5 h-3.5"></i>
-                                </a>
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-         <section id="bilan-but" class="py-24 px-6 bg-white border-y border-slate-100">
-            <div class="max-w-5xl mx-auto">
-                
-                <div class="flex flex-col items-center text-center mb-16">
-                    <span class="text-xs font-bold tracking-widest text-blue-600 uppercase mb-4">Auto-évaluation</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Bilan de compétences BUT</h2>
-                    <p class="text-slate-500 max-w-2xl text-lg">Mon niveau de maîtrise sur les 6 axes du Programme National, acquis au fil de mes projets et de mon stage.</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
-                    
-                    <div class="relative bg-[#fafafa] p-8 rounded-2xl border border-slate-100 overflow-hidden group hover:border-blue-200 transition-all hover:shadow-lg hover:shadow-slate-200/50">
-                        <div class="absolute -right-2 -bottom-6 text-[120px] font-black text-slate-200/40 group-hover:text-blue-100 transition-colors leading-none z-0 select-none font-jetbrains">1</div>
-                        <div class="relative z-10">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="text-xl font-bold text-slate-900">Réaliser</h3>
-                                <span class="px-3 py-1 bg-white border border-slate-200 text-blue-600 text-[10px] uppercase tracking-wider font-bold rounded-full shadow-sm">Acquis</span>
+
+                    <!-- Projet 1 : GoCampus -->
+                    <div class="reveal">
+                        <article class="project-card group" data-tilt>
+                            <div class="project-visual">
+                                <img src="assets/img/covoit-accueil-640.webp" width="640" height="1130" loading="lazy" decoding="async"
+                                     class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" alt="Page d'accueil de l'application GoCampus">
+                                <span class="project-status">SAÉ · équipe de 4</span>
                             </div>
-                            <p class="text-sm text-slate-600 leading-relaxed mb-6 min-h-[60px]">Développer des applications structurées. J'applique le principe du code lisible et maintenable avant de chercher la complexité pure.</p>
-                            <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
-                                <div class="bg-blue-500 w-[85%] h-full rounded-full transition-all duration-700 group-hover:bg-blue-600"></div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <p class="project-role">Responsable base de données</p>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">GoCampus — covoiturage étudiant</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-5 flex-1">Application web de covoiturage pour l'IUT. J'ai conçu la base, sécurisé les réservations simultanées et codé la recherche de trajets par distance GPS.</p>
+                                <ul class="flex flex-wrap gap-2 mb-6" aria-label="Technologies et notions">
+                                    <li class="tech">SQL</li><li class="tech">Transactions</li><li class="tech">Géolocalisation</li><li class="tech">Web</li>
+                                </ul>
+                                <button type="button" class="project-open" data-open="dlg-gocampus">
+                                    Voir le projet <svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                                </button>
                             </div>
-                        </div>
+                        </article>
                     </div>
 
-                    <div class="relative bg-[#fafafa] p-8 rounded-2xl border border-slate-100 overflow-hidden group hover:border-yellow-300 transition-all hover:shadow-lg hover:shadow-slate-200/50">
-                        <div class="absolute -right-2 -bottom-6 text-[120px] font-black text-slate-200/40 group-hover:text-yellow-100 transition-colors leading-none z-0 select-none font-jetbrains">2</div>
-                        <div class="relative z-10">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="text-xl font-bold text-slate-900">Optimiser</h3>
-                                <span class="px-3 py-1 bg-white border border-yellow-200 text-yellow-500 text-[10px] uppercase tracking-wider font-bold rounded-full shadow-sm">Avancé</span>
+                    <!-- Projet 2 : SAÉ S5 -->
+                    <div class="reveal [--d:100ms]">
+                        <article class="project-card group" data-tilt>
+                            <div class="project-visual diagram-bg" role="img" aria-label="Schéma simplifié de la base : utilisateurs, groupes, événements, sondages, votes, dépenses et listes de courses">
+                                <div class="diagram" aria-hidden="true">
+                                    <div class="flex justify-center gap-3"><span class="entity">Utilisateur</span><span class="link-h"></span><span class="entity entity--main">Groupe</span></div>
+                                    <span class="link-v"></span>
+                                    <span class="entity entity--main">Événement</span>
+                                    <span class="link-v"></span>
+                                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2"><span class="entity">Sondage</span><span class="entity">Vote</span><span class="entity">Dépense</span><span class="entity">Courses</span></div>
+                                </div>
+                                <span class="project-status">En cours · BUT3</span>
                             </div>
-                            <p class="text-sm text-slate-600 leading-relaxed mb-6 min-h-[60px]">Mon point fort. Le projet sur l'algorithme de Dijkstra m'a appris à gérer finement l'empreinte mémoire d'un programme complexe.</p>
-                            <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
-                                <div class="bg-yellow-400 w-[90%] h-full rounded-full transition-all duration-700 group-hover:bg-yellow-500"></div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <p class="project-role">Administrateur de la base de données</p>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Planificateur d'événements collaboratif</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-5 flex-1">Application web pour organiser des sorties en groupe : sondages de dates, votes, courses partagées, partage des dépenses. Seul profil data de l'équipe, je gère toute l'architecture PostgreSQL.</p>
+                                <ul class="flex flex-wrap gap-2 mb-6" aria-label="Technologies et notions">
+                                    <li class="tech">PostgreSQL</li><li class="tech">MCD</li><li class="tech">Dictionnaire de données</li>
+                                </ul>
+                                <button type="button" class="project-open" data-open="dlg-sae5">
+                                    Voir le projet <svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                                </button>
                             </div>
-                        </div>
+                        </article>
                     </div>
 
-                    <div class="relative bg-[#fafafa] p-8 rounded-2xl border border-slate-100 overflow-hidden group hover:border-orange-200 transition-all hover:shadow-lg hover:shadow-slate-200/50">
-                        <div class="absolute -right-2 -bottom-6 text-[120px] font-black text-slate-200/40 group-hover:text-orange-100 transition-colors leading-none z-0 select-none font-jetbrains">3</div>
-                        <div class="relative z-10">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="text-xl font-bold text-slate-900">Administrer</h3>
-                                <span class="px-3 py-1 bg-white border border-slate-200 text-orange-600 text-[10px] uppercase tracking-wider font-bold rounded-full shadow-sm">En progression</span>
+                    <!-- Projet 3 : Yu-Gi-Oh -->
+                    <div class="reveal">
+                        <article class="project-card group" data-tilt>
+                            <div class="project-visual diagram-bg" role="img" aria-label="Schéma de l'architecture : PDF et photos, extraction OCR, base SQLite, embeddings, recherche RAG">
+                                <div class="diagram" aria-hidden="true">
+                                    <div class="flex justify-center gap-2"><span class="entity">PDF collection</span><span class="entity">Photos de cartes</span></div>
+                                    <span class="link-v link-v--label">OCR</span>
+                                    <span class="entity entity--main">SQLite · source de vérité</span>
+                                    <span class="link-v link-v--label">embeddings</span>
+                                    <span class="entity entity--accent">Recherche RAG → réponse</span>
+                                </div>
+                                <span class="project-status">Projet perso · en cours</span>
                             </div>
-                            <p class="text-sm text-slate-600 leading-relaxed mb-6 min-h-[60px]">Déploiement et sécurisation. Mon stage chez ISICOM (VLANs, monitoring) m'a donné une vision concrète et "terrain" du réseau.</p>
-                            <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
-                                <div class="bg-orange-400 w-[75%] h-full rounded-full transition-all duration-700 group-hover:bg-orange-500"></div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <p class="project-role">Conception &amp; développement</p>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Assistant de collection Yu-Gi-Oh!</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-5 flex-1">Système Python pour gérer et interroger ma collection de cartes : extraction par OCR, base SQLite comme référence et recherche en langage naturel (RAG).</p>
+                                <ul class="flex flex-wrap gap-2 mb-6" aria-label="Technologies et notions">
+                                    <li class="tech">Python</li><li class="tech">SQLite</li><li class="tech">OCR</li><li class="tech">RAG</li>
+                                </ul>
+                                <button type="button" class="project-open" data-open="dlg-yugioh">
+                                    Voir le projet <svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                                </button>
                             </div>
-                        </div>
+                        </article>
                     </div>
 
-                    <div class="relative bg-[#fafafa] p-8 rounded-2xl border border-slate-100 overflow-hidden group hover:border-emerald-200 transition-all hover:shadow-lg hover:shadow-slate-200/50">
-                        <div class="absolute -right-2 -bottom-6 text-[120px] font-black text-slate-200/40 group-hover:text-emerald-100 transition-colors leading-none z-0 select-none font-jetbrains">4</div>
-                        <div class="relative z-10">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="text-xl font-bold text-slate-900">Gérer</h3>
-                                <span class="px-3 py-1 bg-white border border-slate-200 text-emerald-600 text-[10px] uppercase tracking-wider font-bold rounded-full shadow-sm">Expert</span>
+                    <!-- Projet 4 : Modélisation BDD -->
+                    <div class="reveal [--d:100ms]">
+                        <article class="project-card group" data-tilt>
+                            <div class="project-visual">
+                                <img src="assets/img/bdd-modele-1-640.webp" width="640" height="452" loading="lazy" decoding="async"
+                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" alt="Modèle conceptuel de la base de données : films, clients, locations, ventes">
+                                <span class="project-status">SAÉ · équipe de 3</span>
                             </div>
-                            <p class="text-sm text-slate-600 leading-relaxed mb-6 min-h-[60px]">L'architecture des données. Modélisation 3NF, requêtes géospatiales, triggers... J'ai prouvé ma rigueur technique sur mes projets.</p>
-                            <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
-                                <div class="bg-emerald-500 w-[95%] h-full rounded-full transition-all duration-700 group-hover:bg-emerald-600"></div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <p class="project-role">Conception de la base</p>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Base de données d'une plateforme de films</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-5 flex-1">Conception d'une base de 16 tables pour la location et la vente de films : modélisation, normalisation et triggers PL/SQL d'audit.</p>
+                                <ul class="flex flex-wrap gap-2 mb-6" aria-label="Technologies et notions">
+                                    <li class="tech">MCD / MLD</li><li class="tech">3NF</li><li class="tech">PL/SQL</li><li class="tech">Triggers</li>
+                                </ul>
+                                <button type="button" class="project-open" data-open="dlg-bdd">
+                                    Voir le projet <svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                                </button>
                             </div>
-                        </div>
+                        </article>
                     </div>
+                </div>
 
-                    <div class="relative bg-[#fafafa] p-8 rounded-2xl border border-slate-100 overflow-hidden group hover:border-purple-200 transition-all hover:shadow-lg hover:shadow-slate-200/50">
-                        <div class="absolute -right-2 -bottom-6 text-[120px] font-black text-slate-200/40 group-hover:text-purple-100 transition-colors leading-none z-0 select-none font-jetbrains">5</div>
-                        <div class="relative z-10">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="text-xl font-bold text-slate-900">Conduire</h3>
-                                <span class="px-3 py-1 bg-white border border-slate-200 text-purple-600 text-[10px] uppercase tracking-wider font-bold rounded-full shadow-sm">En progression</span>
-                            </div>
-                            <p class="text-sm text-slate-600 leading-relaxed mb-6 min-h-[60px]">Conduire un projet de A à Z. Je maîtrise la phase de conception (UML), mais je veux encore approfondir les méthodes Agiles.</p>
-                            <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
-                                <div class="bg-purple-500 w-[70%] h-full rounded-full transition-all duration-700 group-hover:bg-purple-600"></div>
-                            </div>
-                        </div>
+                <!-- Autres projets -->
+                <div class="reveal mt-14">
+                    <h3 class="text-sm font-bold tracking-widest text-slate-500 uppercase mb-5">Autres projets</h3>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <button type="button" class="mini-card group" data-open="dlg-ferroviaire">
+                            <span class="mini-icon"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-train-front"></use></svg></span>
+                            <span class="flex-1 text-left">
+                                <span class="block font-bold text-slate-900">Itinéraires ferroviaires</span>
+                                <span class="block text-sm text-slate-600">Algorithme de Dijkstra sur le réseau ferré français</span>
+                            </span>
+                            <svg class="icon w-4 h-4 text-slate-400 transition-transform group-hover:translate-x-1" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                        </button>
+                        <button type="button" class="mini-card group" data-open="dlg-checksum">
+                            <span class="mini-icon"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-shield-check"></use></svg></span>
+                            <span class="flex-1 text-left">
+                                <span class="block font-bold text-slate-900">Calculateur de checksum IP</span>
+                                <span class="block text-sm text-slate-600">Application C# qui vérifie l'intégrité d'un en-tête IP</span>
+                            </span>
+                            <svg class="icon w-4 h-4 text-slate-400 transition-transform group-hover:translate-x-1" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                        </button>
                     </div>
-
-                    <div class="relative bg-[#fafafa] p-8 rounded-2xl border border-slate-100 overflow-hidden group hover:border-pink-200 transition-all hover:shadow-lg hover:shadow-slate-200/50">
-                        <div class="absolute -right-2 -bottom-6 text-[120px] font-black text-slate-200/40 group-hover:text-pink-100 transition-colors leading-none z-0 select-none font-jetbrains">6</div>
-                        <div class="relative z-10">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="text-xl font-bold text-slate-900">Collaborer</h3>
-                                <span class="px-3 py-1 bg-white border border-slate-200 text-pink-600 text-[10px] uppercase tracking-wider font-bold rounded-full shadow-sm">Acquis</span>
-                            </div>
-                            <p class="text-sm text-slate-600 leading-relaxed mb-6 min-h-[60px]">Communiquer techniquement via Git/GitHub et vulgariser l'information complexe, un atout renforcé par mon expérience en pédagogie.</p>
-                            <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
-                                <div class="bg-pink-500 w-[85%] h-full rounded-full transition-all duration-700 group-hover:bg-pink-600"></div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
 
-
-<section id="vision" class="min-h-screen bg-slate-50 flex items-stretch relative overflow-hidden">
-
-    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-100/40 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="w-full md:w-[45%] px-10 flex items-center relative z-10">
-
-        <div class="max-w-lg py-10">
-
-            <div class="inline-flex items-center justify-center w-14 h-14 bg-slate-50 text-indigo-600 rounded-md mb-8 shadow-sm border border-slate-100 transform -rotate-3">
-                <i data-lucide="compass" class="w-7 h-7"></i>
-            </div>
-
-            <h2 class="text-5xl font-bold text-slate-900 mb-10 leading-tight">
-                Réflexion sur mes acquis
-            </h2>
-
-            <div class="space-y-5 text-lg text-slate-600 leading-relaxed">
-
-                <p>Pendant le BUT, je me suis rendu compte que certaines compétences me correspondaient plus que d'autres. J'ai surtout aimé travailler avec les données et résoudre des problèmes techniques.</p>
-
-                <p>Mais tout n'a pas été facile. Certains projets m'ont mis en difficulté et j'ai dû apprendre à chercher des solutions par moi-même. Avec le temps, j'ai gagné en autonomie et en confiance. Mon stage chez ISICOM m'a aussi appris à être plus rigoureux, notamment pendant la configuration des VLANs.</p>
-
-                <p>Ce parcours m'a aidé à mieux comprendre ce que je veux faire plus tard. En découvrant les métiers autour de la data, j'ai compris pourquoi ce domaine me plaît autant : j'aime organiser les informations et comprendre comment les systèmes fonctionnent ensemble.</p>
-
-            </div>
-
-        </div>
-    </div>
-
-    <div class="hidden md:block w-[55%] relative z-10">
-        <img src="IUT.jpg" class="w-full h-full object-cover" alt="IUT" />
-    </div>
-
-</section>
-<section id="recommandations" class="py-24 px-6 bg-white border-b border-slate-100 relative overflow-hidden">
+        <!-- ============ COMPÉTENCES ============ -->
+        <section id="competences" class="py-24 px-6">
             <div class="max-w-5xl mx-auto">
-                <div class="flex flex-col items-center text-center mb-16">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-md flex items-center justify-center mb-4 transform -rotate-3">
-                        <i data-lucide="message-square-quote" class="w-6 h-6"></i>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Ce qu'on dit de mon travail</h2>
-                    <p class="text-slate-500 max-w-2xl text-lg">Les retours que j'ai pu recevoir lors de ma formation et de mon expérience professionnelle.</p>
+                <div class="reveal text-center mb-14">
+                    <p class="eyebrow">02 · Compétences</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Ma boîte à outils</h2>
+                    <p class="text-slate-600 mt-4 max-w-xl mx-auto">Les langages et outils que j'utilise en projet, classés par domaine.</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-[#fafafa] p-8 md:p-10 rounded-2xl border border-slate-100 shadow-sm relative group hover:border-blue-200 transition-all">
-                        <div class="relative z-10">
-                            <p class="text-slate-600 leading-relaxed text-lg mb-8">
-                                L'équipe enseignante de l'IUT souligne régulièrement ma capacité à être un élément moteur au sein de la promotion. Mes professeurs mettent en avant mon approche méthodique, notamment le fait que je prenne toujours le temps de poser les problèmes sur papier avant de commencer à coder. Ils apprécient également mon implication et ma volonté d'aider mes camarades en prenant le temps de leur réexpliquer des concepts complexes.
-                            </p>
-                            <div class="flex items-center gap-4 mt-auto">
-                                <div class="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-blue-600 shadow-sm">
-                                    <i data-lucide="graduation-cap" class="w-6 h-6"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900">Mes professeurs</h4>
-                                    <span class="text-sm text-slate-500">IUT d'Amiens</span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="reveal skill-card">
+                        <div class="skill-head"><span class="skill-icon bg-blue-50 text-blue-600"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-chart-column"></use></svg></span><h3>Data</h3></div>
+                        <ul class="chips">
+                            <li class="chip"><svg class="icon w-4 h-4 text-blue-600" aria-hidden="true"><use href="#i-table"></use></svg>SQL</li>
+                            <li class="chip"><svg class="icon w-4 h-4 text-blue-600" aria-hidden="true"><use href="#i-code-xml"></use></svg>PL/SQL</li>
+                            <li class="chip"><img src="assets/icons/python.svg" width="16" height="16" alt="" loading="lazy">Python</li>
+                            <li class="chip"><svg class="icon w-4 h-4 text-blue-600" aria-hidden="true"><use href="#i-sparkles"></use></svg>RAG &amp; embeddings</li>
+                            <li class="chip"><svg class="icon w-4 h-4 text-blue-600" aria-hidden="true"><use href="#i-scan-text"></use></svg>OCR</li>
+                        </ul>
+                        <p class="skill-next">Prochaine étape : tableaux de bord avec Power BI.</p>
                     </div>
 
-                    <div class="bg-[#fafafa] p-8 md:p-10 rounded-2xl border border-slate-100 shadow-sm relative group hover:border-orange-200 transition-all">
-                        <div class="relative z-10">
-                            <p class="text-slate-600 leading-relaxed text-lg mb-8">
-                                Lors de mon stage, l'équipe technique d'ISICOM a particulièrement remarqué la rapidité avec laquelle j'ai su faire preuve d'autonomie. Mon travail sur la sécurisation et la segmentation de leurs réseaux via la mise en place de VLANs a été décrit comme sérieux et fiable. Ils ont également souligné ma curiosité intellectuelle et la facilité avec laquelle je me suis intégré à leur environnement de travail.
-                            </p>
-                            <div class="flex items-center gap-4 mt-auto">
-                                <div class="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-orange-600 shadow-sm">
-                                    <i data-lucide="building" class="w-6 h-6"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900">L'équipe technique</h4>
-                                    <span class="text-sm text-slate-500">ISICOM</span>
-                                </div>
+                    <div class="reveal [--d:100ms] skill-card">
+                        <div class="skill-head"><span class="skill-icon bg-indigo-50 text-indigo-600"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-database"></use></svg></span><h3>Bases de données</h3></div>
+                        <ul class="chips">
+                            <li class="chip"><img src="assets/icons/postgresql.svg" width="16" height="16" alt="" loading="lazy">PostgreSQL</li>
+                            <li class="chip"><img src="assets/icons/sqlite.svg" width="16" height="16" alt="" loading="lazy">SQLite</li>
+                            <li class="chip">MCD · MLD · MPD</li>
+                            <li class="chip">Dictionnaire de données</li>
+                            <li class="chip">Normalisation (3NF)</li>
+                            <li class="chip">Triggers &amp; transactions</li>
+                        </ul>
+                    </div>
+
+                    <div class="reveal skill-card">
+                        <div class="skill-head"><span class="skill-icon bg-emerald-50 text-emerald-700"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-terminal"></use></svg></span><h3>Développement</h3></div>
+                        <ul class="chips">
+                            <li class="chip"><img src="assets/icons/python.svg" width="16" height="16" alt="" loading="lazy">Python</li>
+                            <li class="chip"><img src="assets/icons/c.svg" width="16" height="16" alt="" loading="lazy">C</li>
+                            <li class="chip"><img src="assets/icons/cplusplus.svg" width="16" height="16" alt="" loading="lazy">C++</li>
+                            <li class="chip"><img src="assets/icons/csharp.svg" width="16" height="16" alt="" loading="lazy">C#</li>
+                            <li class="chip"><img src="assets/icons/html5.svg" width="16" height="16" alt="" loading="lazy">HTML</li>
+                            <li class="chip"><img src="assets/icons/css3.svg" width="16" height="16" alt="" loading="lazy">CSS</li>
+                        </ul>
+                    </div>
+
+                    <div class="reveal [--d:100ms] skill-card">
+                        <div class="skill-head"><span class="skill-icon bg-purple-50 text-purple-700"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-wrench"></use></svg></span><h3>Outils</h3></div>
+                        <ul class="chips">
+                            <li class="chip"><img src="assets/icons/git.svg" width="16" height="16" alt="" loading="lazy">Git / GitHub</li>
+                            <li class="chip"><img src="assets/icons/linux.svg" width="16" height="16" alt="" loading="lazy">Linux</li>
+                            <li class="chip"><img src="assets/icons/figma.svg" width="16" height="16" alt="" loading="lazy">Figma</li>
+                            <li class="chip"><img src="assets/icons/photoshop.svg" width="16" height="16" alt="" loading="lazy">Photoshop</li>
+                            <li class="chip"><svg class="icon w-4 h-4 text-purple-700" aria-hidden="true"><use href="#i-workflow"></use></svg>UML</li>
+                        </ul>
+                        <p class="skill-next">En stage : pfSense, switches UniFi, Zabbix, GLPI.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PARCOURS ============ -->
+        <section id="parcours" class="py-24 px-6 bg-white border-y border-slate-100">
+            <div class="max-w-4xl mx-auto">
+                <div class="reveal text-center mb-16">
+                    <p class="eyebrow">03 · Parcours</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Formation &amp; expériences</h2>
+                </div>
+
+                <ol class="timeline">
+                    <li class="reveal timeline-item">
+                        <span class="timeline-dot bg-blue-600 text-white border-blue-600"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-sparkles"></use></svg></span>
+                        <div class="timeline-card border-blue-200 bg-blue-50/40">
+                            <p class="timeline-date bg-blue-100 text-blue-800">1er mars – 4 juin 2027</p>
+                            <h3 class="timeline-title">Prochaine étape : stage Data</h3>
+                            <p class="text-slate-600 leading-relaxed">Je recherche un stage de 3 mois en analyse de données, BI ou bases de données.</p>
+                        </div>
+                    </li>
+                    <li class="reveal timeline-item">
+                        <span class="timeline-dot"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-server"></use></svg></span>
+                        <div class="timeline-card">
+                            <p class="timeline-date">Janvier – mars 2026</p>
+                            <h3 class="timeline-title">Stage technicien systèmes &amp; réseaux</h3>
+                            <p class="timeline-place"><svg class="icon w-3.5 h-3.5" aria-hidden="true"><use href="#i-building"></use></svg>ISICOM · Nogent-sur-Oise</p>
+                            <ul class="list-disc pl-5 space-y-1 text-slate-600 text-sm leading-relaxed mb-4">
+                                <li>Segmentation de réseaux clients en VLAN selon les types d'équipements.</li>
+                                <li>Configuration de pfSense (interfaces VLAN, DHCP, règles de pare-feu) et de switches UniFi.</li>
+                                <li>Résolution de tickets via GLPI et interventions chez les clients.</li>
+                            </ul>
+                            <button type="button" class="text-sm font-semibold text-blue-700 hover:text-blue-800 inline-flex items-center gap-1" data-open="dlg-isicom">
+                                Détails et captures <svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="reveal timeline-item">
+                        <span class="timeline-dot"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-graduation-cap"></use></svg></span>
+                        <div class="timeline-card">
+                            <p class="timeline-date">2024 – 2027</p>
+                            <h3 class="timeline-title">BUT Informatique</h3>
+                            <p class="timeline-place"><svg class="icon w-3.5 h-3.5" aria-hidden="true"><use href="#i-map-pin"></use></svg>IUT d'Amiens</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">Parcours « Administration, gestion et exploitation des données » : conception de bases, SQL, PL/SQL, développement et réseau.</p>
+                        </div>
+                    </li>
+                    <li class="reveal timeline-item">
+                        <span class="timeline-dot"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-users"></use></svg></span>
+                        <div class="timeline-card">
+                            <p class="timeline-date">Mars – juin 2024</p>
+                            <h3 class="timeline-title">Cours particuliers</h3>
+                            <p class="timeline-place"><svg class="icon w-3.5 h-3.5" aria-hidden="true"><use href="#i-book-open"></use></svg>Indépendant · Creil</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">Suivi d'élèves en difficulté, explication de notions complexes et exercices ciblés.</p>
+                        </div>
+                    </li>
+                    <li class="reveal timeline-item">
+                        <span class="timeline-dot"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-graduation-cap"></use></svg></span>
+                        <div class="timeline-card">
+                            <p class="timeline-date">2021 – 2024</p>
+                            <h3 class="timeline-title">Baccalauréat général</h3>
+                            <p class="timeline-place"><svg class="icon w-3.5 h-3.5" aria-hidden="true"><use href="#i-map-pin"></use></svg>Lycée Jules Uhry · Creil</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">Spécialités NSI &amp; SVT</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="reveal mt-14 flex justify-center">
+                    <a href="assets/CV_Rayane_HALIM.pdf" download class="btn btn-primary">
+                        <svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-file-text"></use></svg>
+                        Télécharger mon CV (PDF)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ À PROPOS ============ -->
+        <section id="propos" class="py-24 px-6">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="reveal">
+                        <p class="eyebrow">04 · À propos</p>
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8">Qui je suis</h2>
+                        <div class="space-y-5 text-slate-600 leading-relaxed text-lg">
+                            <p>Ce que je préfère : partir d'un besoin encore flou et en faire une <strong class="text-slate-900">base de données propre, cohérente et facile à interroger</strong>. C'est pour ça que j'ai choisi le parcours données du BUT.</p>
+                            <p>Mon stage chez ISICOM, en réseau, m'a appris à travailler en autonomie chez de vrais clients. Il m'a aussi confirmé que c'est la donnée qui m'intéresse le plus : pour mon prochain stage, je vise l'<strong class="text-slate-900">analyse de données, la BI ou les bases de données</strong>.</p>
+                            <p>Avant l'IUT, j'ai donné des cours particuliers. Savoir expliquer simplement une notion technique me sert aujourd'hui dans chaque projet d'équipe.</p>
+                        </div>
+                        <ul class="mt-8 flex flex-wrap gap-2" aria-label="Langues">
+                            <li class="chip">Français · langue maternelle</li>
+                            <li class="chip">Anglais · B2</li>
+                            <li class="chip">Arabe · courant</li>
+                        </ul>
+                    </div>
+
+                    <div class="reveal [--d:120ms] flex justify-center lg:justify-end">
+                        <div class="w-full max-w-[420px] aspect-[4/5] bg-slate-200 shape-maquette relative" style="filter: drop-shadow(-10px 15px 25px rgba(0,0,0,.15));">
+                            <img src="assets/img/rayane-apropos-900.webp"
+                                 srcset="assets/img/rayane-apropos-480.webp 480w, assets/img/rayane-apropos-900.webp 900w"
+                                 sizes="(min-width: 768px) 420px, 90vw"
+                                 width="900" height="974" loading="lazy" decoding="async"
+                                 class="absolute inset-0 w-full h-full object-cover" alt="Rayane Halim">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal mt-20">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 text-center">Au-delà de l'écran</h3>
+                    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                        <div class="flex gap-5 bg-white p-6 rounded-xl border border-slate-200 shadow-sm items-start">
+                            <span class="mini-icon"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-trophy"></use></svg></span>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg mb-2">Football · FC Creil</h4>
+                                <p class="text-slate-600 leading-relaxed text-sm">En compétition régionale. Le terrain m'apprend à garder la tête froide sous pression et à jouer collectif, comme en projet.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5 bg-white p-6 rounded-xl border border-slate-200 shadow-sm items-start">
+                            <span class="mini-icon"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-camera"></use></svg></span>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg mb-2">Photographie &amp; montage</h4>
+                                <p class="text-slate-600 leading-relaxed text-sm">Un travail de patience et de détail, le même soin que je mets à structurer une base de données.</p>
                             </div>
                         </div>
                     </div>
@@ -755,77 +482,67 @@ function closeCV() {
             </div>
         </section>
 
-<section id="contact" class="py-24 px-6 bg-slate-50 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-100/40 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="max-w-5xl mx-auto relative z-10">
-                <div class="grid md:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <div class="inline-flex items-center justify-center w-14 h-14 bg-white text-blue-600 rounded-md mb-8 shadow-sm border border-slate-100 transform -rotate-3">
-                            <i data-lucide="mail" class="w-7 h-7"></i>
-                        </div>
-                        <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Prêt à collaborer ?</h2>
-                        <p class="text-slate-600 text-lg mb-10 leading-relaxed">Que ce soit pour une opportunité professionnelle, parler technique ou échanger sur l'analyse de données, n'hésitez pas à m'écrire.</p>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-center text-slate-700 font-medium">
-                                <div class="w-12 h-12 bg-white border border-slate-200 rounded-md flex items-center justify-center mr-4 shadow-sm">
-                                    <i data-lucide="user" class="w-5 h-5 text-slate-500"></i>
-                                </div>
-                                Rayane HALIM
-                            </div>
-                            
-                            <a href="mailto:rayanehalim677@gmail.com" class="flex items-center text-slate-700 font-medium hover:text-blue-600 transition-colors group">
-                                <div class="w-12 h-12 bg-white border border-slate-200 rounded-md flex items-center justify-center mr-4 shadow-sm group-hover:border-blue-300 group-hover:bg-blue-50 transition-colors text-slate-500 group-hover:text-blue-600">
-                                    <i data-lucide="at-sign" class="w-5 h-5"></i>
-                                </div>
-                                rayanehalim677@gmail.com
-                            </a>
+        <!-- ============ BILAN BUT ============ -->
+        <section id="bilan-but" class="py-24 px-6 bg-white border-y border-slate-100">
+            <div class="max-w-5xl mx-auto">
+                <div class="reveal text-center mb-14">
+                    <p class="eyebrow">05 · Bilan BUT</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Bilan de compétences</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto text-lg">Les 6 compétences du BUT Informatique, et ce qui les prouve dans mes projets.</p>
+                </div>
 
-                            <div class="flex items-center text-slate-700 font-medium">
-                                <div class="w-12 h-12 bg-white border border-slate-200 rounded-md flex items-center justify-center mr-4 shadow-sm">
-                                    <i data-lucide="phone" class="w-5 h-5 text-slate-500"></i>
-                                </div>
-                                07 84 80 02 51
-                            </div>
-                            
-                            <div class="flex items-center text-slate-700 font-medium">
-                                <div class="w-12 h-12 bg-white border border-slate-200 rounded-md flex items-center justify-center mr-4 shadow-sm">
-                                    <i data-lucide="map-pin" class="w-5 h-5 text-slate-500"></i>
-                                </div>
-                                Creil / Amiens
-                            </div>
-                            
-                            <a href="https://www.linkedin.com/in/rayane-halim-6616b6383/" target="_blank" rel="noreferrer" class="flex items-center text-slate-700 font-medium hover:text-blue-600 transition-colors group">
-                                <div class="w-12 h-12 bg-white border border-slate-200 rounded-md flex items-center justify-center mr-4 shadow-sm group-hover:border-blue-300 group-hover:bg-blue-50 transition-colors text-slate-500 group-hover:text-blue-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                                </div>
-                                Mon profil LinkedIn
-                                <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2 opacity-50 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all"></i>
-                            </a>
-                        </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div class="reveal bilan-card"><div class="bilan-head"><h3><span class="bilan-num">1</span>Réaliser</h3><span class="level level--ok">Acquis</span></div><p>Applications web en équipe (GoCampus, planificateur d'événements) et programmes en Python.</p></div>
+                    <div class="reveal [--d:80ms] bilan-card"><div class="bilan-head"><h3><span class="bilan-num">2</span>Optimiser</h3><span class="level level--ok">Acquis</span></div><p>Dijkstra sur le réseau ferré national, avec des structures de données choisies pour limiter la mémoire.</p></div>
+                    <div class="reveal [--d:160ms] bilan-card"><div class="bilan-head"><h3><span class="bilan-num">3</span>Administrer</h3><span class="level level--ok">Acquis en stage</span></div><p>VLAN, pare-feu pfSense, switches UniFi et support GLPI chez ISICOM.</p></div>
+                    <div class="reveal bilan-card bilan-card--strong"><div class="bilan-head"><h3><span class="bilan-num">4</span>Gérer les données</h3><span class="level level--strong">Point fort</span></div><p>Mon parcours : modélisation MCD/MLD, normalisation, PL/SQL, triggers et transactions.</p></div>
+                    <div class="reveal [--d:80ms] bilan-card"><div class="bilan-head"><h3><span class="bilan-num">5</span>Conduire</h3><span class="level level--progress">En progression</span></div><p>À l'aise en conception (UML, MCD). Je veux encore approfondir les méthodes agiles.</p></div>
+                    <div class="reveal [--d:160ms] bilan-card"><div class="bilan-head"><h3><span class="bilan-num">6</span>Collaborer</h3><span class="level level--ok">Acquis</span></div><p>Projets en équipes de 2 à 4 avec Git/GitHub, et expérience de pédagogie.</p></div>
+                </div>
+
+                <div class="reveal mt-14 max-w-3xl mx-auto bg-[#fafafa] border border-slate-200 rounded-xl p-6 md:p-8">
+                    <h3 class="flex items-center gap-2 text-lg font-bold text-slate-900 mb-3"><svg class="icon w-5 h-5 text-blue-600" aria-hidden="true"><use href="#i-compass"></use></svg>Ce que le BUT m'a appris</h3>
+                    <p class="text-slate-600 leading-relaxed">Certains projets m'ont mis en difficulté et m'ont obligé à chercher des solutions par moi-même. J'y ai gagné en autonomie, et mon stage m'a rendu plus rigoureux. Surtout, j'ai compris ce qui me plaît vraiment : organiser l'information et comprendre comment les systèmes fonctionnent ensemble. C'est ce qui m'oriente vers la data.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section id="contact" class="py-24 px-6 relative overflow-hidden">
+            <div class="max-w-5xl mx-auto relative">
+                <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                    <div class="reveal">
+                        <p class="eyebrow">06 · Contact</p>
+                        <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Un stage Data à proposer&nbsp;?</h2>
+                        <p class="text-slate-600 text-lg mb-10 leading-relaxed">Je suis disponible du <strong class="text-slate-900">1er mars au 4 juin 2027</strong>. Écrivez-moi pour une offre de stage, une question sur un projet ou simplement pour échanger.</p>
+                        <ul class="space-y-4">
+                            <li><a href="mailto:rayanehalim677@gmail.com" class="contact-line group"><span class="contact-icon"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-mail"></use></svg></span>rayanehalim677@gmail.com</a></li>
+                            <li><a href="tel:+33784800251" class="contact-line group"><span class="contact-icon"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-phone"></use></svg></span>07 84 80 02 51</a></li>
+                            <li><a href="https://www.linkedin.com/in/rayane-halim-6616b6383/" target="_blank" rel="noopener" class="contact-line group"><span class="contact-icon"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-linkedin"></use></svg></span>LinkedIn<svg class="icon w-4 h-4 text-slate-400 group-hover:text-blue-600" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></a></li>
+                            <li><a href="https://github.com/Rayane-hlm" target="_blank" rel="noopener" class="contact-line group"><span class="contact-icon"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-github"></use></svg></span>GitHub<svg class="icon w-4 h-4 text-slate-400 group-hover:text-blue-600" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></a></li>
+                            <li class="contact-line"><span class="contact-icon"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-map-pin"></use></svg></span>Creil / Amiens · véhiculé</li>
+                        </ul>
                     </div>
-                    
-                    <div class="bg-white p-8 md:p-10 rounded-lg border border-slate-100 shadow-xl shadow-slate-200/50 relative overflow-hidden group">
-                        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
-                        
-                        <form id="contact-form" action="https://formspree.io/f/meedkapb" method="POST" class="space-y-6 relative z-10 pt-2">
+
+                    <div class="reveal [--d:120ms] bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-100">
+                        <form id="contact-form" action="https://formspree.io/f/meedkapb" method="POST" class="space-y-6">
                             <div>
-                                <label for="name" class="block text-sm font-bold text-slate-700 mb-2">Votre nom</label>
-                                <input type="text" id="name" name="name" required class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-md text-slate-900 focus:bg-white focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all placeholder:text-slate-400" placeholder="Jean Dupont">
+                                <label for="name" class="form-label">Votre nom</label>
+                                <input type="text" id="name" name="name" autocomplete="name" required class="form-input" placeholder="Jean Dupont">
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-bold text-slate-700 mb-2">Votre adresse email</label>
-                                <input type="email" id="email" name="email" required class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-md text-slate-900 focus:bg-white focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all placeholder:text-slate-400" placeholder="jean@exemple.com">
+                                <label for="email" class="form-label">Votre adresse email</label>
+                                <input type="email" id="email" name="email" autocomplete="email" required class="form-input" placeholder="jean@exemple.com">
                             </div>
                             <div>
-                                <label for="message" class="block text-sm font-bold text-slate-700 mb-2">Votre message</label>
-                                <textarea id="message" name="message" rows="4" required class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-md text-slate-900 focus:bg-white focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all placeholder:text-slate-400 resize-none" placeholder="Bonjour Rayane, j'aimerais vous contacter au sujet de..."></textarea>
+                                <label for="message" class="form-label">Votre message</label>
+                                <textarea id="message" name="message" rows="5" required class="form-input resize-none" placeholder="Bonjour Rayane, je vous contacte au sujet de…"></textarea>
                             </div>
-                            <button type="submit" class="w-full py-4 mt-4 bg-slate-900 text-white font-bold rounded-md hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 group/btn">
-                                Envoyer le message
-                                <i data-lucide="send" class="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform"></i>
+                            <button type="submit" class="btn btn-primary w-full justify-center py-4">
+                                <span class="btn-label">Envoyer le message</span>
+                                <svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-send"></use></svg>
                             </button>
+                            <p id="form-status" class="text-sm font-semibold min-h-[1.25rem]" role="status" aria-live="polite"></p>
                         </form>
                     </div>
                 </div>
@@ -833,459 +550,302 @@ function closeCV() {
         </section>
     </main>
 
-    <footer class="py-10 text-center border-t border-slate-200 bg-white">
-        <p class="text-sm text-slate-500 font-medium flex items-center justify-center gap-2">
-            Fait par Rayane Halim 2026
-        </p>
+    <footer class="py-10 px-6 border-t border-slate-200 bg-white">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600">
+            <p class="font-jetbrains">© 2026 Rayane Halim</p>
+            <ul class="flex gap-6 font-semibold">
+                <li><a href="https://github.com/Rayane-hlm" target="_blank" rel="noopener" class="hover:text-blue-600">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/rayane-halim-6616b6383/" target="_blank" rel="noopener" class="hover:text-blue-600">LinkedIn</a></li>
+                <li><a href="assets/CV_Rayane_HALIM.pdf" download class="hover:text-blue-600">CV (PDF)</a></li>
+            </ul>
+        </div>
     </footer>
 
-    <div id="modal-covoiturage" class="fixed inset-0 z-[150] hidden items-center justify-center opacity-0 transition-opacity duration-300">
-        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm cursor-pointer" onclick="closeModal('modal-covoiturage')"></div>
-        <div id="content-covoiturage" class="bg-white rounded-xl shadow-2xl w-[95%] max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 scale-95 transition-transform duration-300 custom-scrollbar">
-            <div class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-100 p-6 flex justify-between items-center z-20">
-                <h3 class="text-2xl font-bold text-slate-900">Plateforme de Covoiturage</h3>
-                <button onclick="closeModal('modal-covoiturage')" class="p-2 bg-slate-100 hover:bg-red-50 hover:text-red-600 rounded-full transition-colors text-slate-500"><i data-lucide="x" class="w-5 h-5"></i></button>
+    <button id="to-top" type="button" class="to-top" aria-label="Retour en haut de la page">
+        <svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-arrow-up"></use></svg>
+    </button>
+
+    <!-- =====================================================
+         FENÊTRES DE DÉTAIL DES PROJETS
+         ===================================================== -->
+
+    <!-- GoCampus -->
+    <dialog id="dlg-gocampus" class="dialog" aria-labelledby="dlg-gocampus-title">
+        <div class="dialog-panel">
+            <div class="dialog-header">
+                <h2 id="dlg-gocampus-title" class="dialog-title">GoCampus — covoiturage étudiant</h2>
+                <button type="button" class="dialog-close" data-close aria-label="Fermer"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-x"></use></svg></button>
             </div>
-            <div class="p-6 md:p-8 space-y-8">
-                <div class="flex flex-wrap gap-4 text-sm font-medium text-slate-700 bg-slate-50 p-4 rounded-lg border border-slate-100">
-                    <div class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-emerald-600"></i> Octobre 2025 - Janvier 2026</div>
-                    <div class="w-px bg-slate-200 hidden md:block"></div>
-                    <div class="flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-emerald-600"></i> 4 membres</div>
-                    <div class="w-px bg-slate-200 hidden md:block"></div>
-                    <div class="flex items-center gap-2"><i data-lucide="tag" class="w-4 h-4 text-emerald-600"></i> Lead Base de données</div>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">Contexte du projet</h4>
-                    <p class="text-slate-600 leading-relaxed mb-4">L'idée de base est simple : beaucoup d'étudiants n'ont pas de voiture pour venir à l'IUT. Mon équipe et moi avons donc créé un site web complet où les conducteurs peuvent proposer des places libres, et les passagers peuvent les réserver. En tant que responsable de la base de données, mon rôle était de m'assurer que toutes les informations soient parfaitement stockées et traitées sans aucune erreur.</p>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">Ce que j'ai mis en place</h4>
-                    <ul class="list-disc pl-5 space-y-2 text-slate-600 mb-6">
-                        <li><strong>Éviter les erreurs de réservation :</strong> Imaginez que deux étudiants cliquent en même temps sur la toute dernière place disponible dans une voiture. Si le site est mal fait, la voiture se retrouve surbookée. J'ai programmé une sécurité stricte dans la base de données : le système met le trajet "en pause" pendant une fraction de seconde, donne la place au premier qui a cliqué, et affiche "Complet" au second.</li>
-                        <li><strong>Un système GPS intelligent :</strong> Au lieu de chercher un trajet juste en tapant le nom d'une ville exacte, j'ai intégré une formule mathématique. Le site utilise la position géographique (latitude/longitude) et calcule la distance en ligne droite. Ainsi, le passager peut voir tous les conducteurs qui passent à moins de 10 kilomètres autour de lui.</li>
+            <div class="dialog-body">
+                <ul class="dialog-meta">
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-calendar"></use></svg>Octobre 2025 – janvier 2026</li>
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-users"></use></svg>Équipe de 4</li>
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-tag"></use></svg>Responsable base de données</li>
+                </ul>
+                <section><h3>Contexte</h3>
+                    <p>Beaucoup d'étudiants de l'IUT n'ont pas de voiture pour venir en cours. En équipe de 4, nous avons développé GoCampus : les conducteurs publient leurs trajets, les passagers réservent une place. J'étais responsable de la base de données.</p>
+                </section>
+                <section><h3>Ce que j'ai fait</h3>
+                    <ul>
+                        <li><strong>Conception du schéma</strong> : utilisateurs, trajets, réservations et leurs règles de gestion.</li>
+                        <li><strong>Réservations simultanées</strong> : la réservation se fait dans une transaction qui verrouille le trajet le temps de la mise à jour. Si deux étudiants réservent la dernière place en même temps, le premier l'obtient et le second voit « Complet ». Aucune surréservation possible.</li>
+                        <li><strong>Recherche par proximité</strong> : chaque trajet stocke ses coordonnées GPS. Une requête calcule la distance à vol d'oiseau pour afficher les conducteurs qui passent à moins de 10 km du passager.</li>
                     </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-3">Cliquez sur les images pour agrandir</h4>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        <div class="relative group cursor-pointer gallery-thumb rounded-lg border border-slate-200 overflow-hidden bg-slate-100" onclick="openLightbox('covoiturage', 0)">
-                            <img src="Accueil.png" alt="Accueil" class="w-full h-32 object-cover">
-                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><i data-lucide="zoom-in" class="text-white w-6 h-6"></i></div>
-                        </div>
-                        <div class="relative group cursor-pointer gallery-thumb rounded-lg border border-slate-200 overflow-hidden bg-slate-100" onclick="openLightbox('covoiturage', 1)">
-                            <img src="Rechercher.png" alt="Rechercher" class="w-full h-32 object-cover">
-                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><i data-lucide="zoom-in" class="text-white w-6 h-6"></i></div>
-                        </div>
-                        <div class="relative group cursor-pointer gallery-thumb rounded-lg border border-slate-200 overflow-hidden bg-slate-100" onclick="openLightbox('covoiturage', 2)">
-                            <img src="Mes annonces.png" alt="Annonces" class="w-full h-32 object-cover">
-                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><i data-lucide="zoom-in" class="text-white w-6 h-6"></i></div>
-                        </div>
-                        <div class="relative group cursor-pointer gallery-thumb rounded-lg border border-slate-200 overflow-hidden bg-slate-100" onclick="openLightbox('covoiturage', 3)">
-                            <img src="Proposer un trajet.png" alt="Proposer" class="w-full h-32 object-cover">
-                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><i data-lucide="zoom-in" class="text-white w-6 h-6"></i></div>
-                        </div>
-                        <div class="relative group cursor-pointer gallery-thumb rounded-lg border border-slate-200 overflow-hidden bg-slate-100" onclick="openLightbox('covoiturage', 4)">
-                            <img src="Mes réservations.png" alt="Réservations" class="w-full h-32 object-cover">
-                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><i data-lucide="zoom-in" class="text-white w-6 h-6"></i></div>
-                        </div>
+                </section>
+                <section><h3>Stack</h3>
+                    <ul class="flex flex-wrap gap-2"><li class="tech">SQL</li><li class="tech">Transactions</li><li class="tech">Géolocalisation</li></ul>
+                                    </section>
+                <section><h3>Résultat</h3>
+                    <p>Application fonctionnelle livrée en janvier 2026, avec 5 écrans : accueil, recherche, publication d'un trajet, mes annonces et mes réservations. Aucune surréservation possible grâce au verrouillage transactionnel.</p>
+                </section>
+                <section><h3>Captures d'écran</h3>
+                    <div class="gallery">
+                        <button type="button" class="thumb" data-gallery="gocampus" data-full="assets/img/covoit-accueil-1440.webp"><img src="assets/img/covoit-accueil-640.webp" width="640" height="1130" loading="lazy" decoding="async" alt="Page d'accueil"></button>
+                        <button type="button" class="thumb" data-gallery="gocampus" data-full="assets/img/covoit-recherche-1440.webp"><img src="assets/img/covoit-recherche-640.webp" width="640" height="654" loading="lazy" decoding="async" alt="Recherche d'un trajet"></button>
+                        <button type="button" class="thumb" data-gallery="gocampus" data-full="assets/img/covoit-proposer-1440.webp"><img src="assets/img/covoit-proposer-640.webp" width="640" height="530" loading="lazy" decoding="async" alt="Formulaire pour proposer un trajet"></button>
+                        <button type="button" class="thumb" data-gallery="gocampus" data-full="assets/img/covoit-annonces-1440.webp"><img src="assets/img/covoit-annonces-640.webp" width="640" height="530" loading="lazy" decoding="async" alt="Page Mes annonces"></button>
+                        <button type="button" class="thumb" data-gallery="gocampus" data-full="assets/img/covoit-reservations-1440.webp"><img src="assets/img/covoit-reservations-640.webp" width="640" height="414" loading="lazy" decoding="async" alt="Page Mes réservations"></button>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
-    </div>
+    </dialog>
 
-    <div id="modal-itineraire" class="fixed inset-0 z-[150] hidden items-center justify-center opacity-0 transition-opacity duration-300">
-        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm cursor-pointer" onclick="closeModal('modal-itineraire')"></div>
-        <div id="content-itineraire" class="bg-white rounded-xl shadow-2xl w-[95%] max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 scale-95 transition-transform duration-300 custom-scrollbar">
-            <div class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-100 p-6 flex justify-between items-center z-20">
-                <h3 class="text-2xl font-bold text-slate-900">Itinéraires Ferroviaires</h3>
-                <button onclick="closeModal('modal-itineraire')" class="p-2 bg-slate-100 hover:bg-red-50 hover:text-red-600 rounded-full transition-colors text-slate-500"><i data-lucide="x" class="w-5 h-5"></i></button>
+    <!-- SAÉ S5 -->
+    <dialog id="dlg-sae5" class="dialog" aria-labelledby="dlg-sae5-title">
+        <div class="dialog-panel">
+            <div class="dialog-header">
+                <h2 id="dlg-sae5-title" class="dialog-title">Planificateur d'événements collaboratif</h2>
+                <button type="button" class="dialog-close" data-close aria-label="Fermer"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-x"></use></svg></button>
             </div>
-            <div class="p-6 md:p-8 space-y-8">
-                <div class="flex flex-wrap gap-4 text-sm font-medium text-slate-700 bg-slate-50 p-4 rounded-lg border border-slate-100">
-                    <div class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-indigo-600"></i> Avril 2025 - Juin 2025</div>
-                    <div class="w-px bg-slate-200 hidden md:block"></div>
-                    <div class="flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-indigo-600"></i> 2 membres</div>
-                    <div class="w-px bg-slate-200 hidden md:block"></div>
-                    <div class="flex items-center gap-2"><i data-lucide="tag" class="w-4 h-4 text-indigo-600"></i> Développeur Algo</div>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">Contexte du projet</h4>
-                    <p class="text-slate-600 leading-relaxed mb-4">Ce projet consiste à créer notre propre "Google Maps" mais pour les trains. Quand on lui donne une gare de départ et une gare d'arrivée, le programme doit être capable de trouver le trajet le plus rapide parmi des milliers de gares interconnectées.</p>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">Mon travail sur l'algorithme</h4>
-                    <ul class="list-disc pl-5 space-y-2 text-slate-600 mb-6">
-                        <li><strong>Le choix du meilleur chemin :</strong> J'ai programmé une méthode mathématique très connue (l'algorithme de Dijkstra). Son point fort, c'est qu'au lieu de tester tous les chemins possibles un par un, il repère et élimine immédiatement les chemins qui vont dans la mauvaise direction, ce qui fait gagner un temps énorme.</li>
-                        <li><strong>Ne pas faire exploser l'ordinateur :</strong> Un réseau ferré national représente une quantité de données gigantesque. Si le code est mal écrit, la mémoire de l'ordinateur sature et le programme plante. J'ai organisé les données sous forme de "listes" très légères. Grâce à ça, le programme trouve un trajet à travers toute la France en moins d'une seconde.</li>
+            <div class="dialog-body">
+                <ul class="dialog-meta">
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-calendar"></use></svg>Septembre 2026 – en cours</li>
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-users"></use></svg>Équipe de 4</li>
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-tag"></use></svg>Administrateur de la base de données</li>
+                </ul>
+                <section><h3>Contexte</h3>
+                    <p>Organiser une sortie à plusieurs, c'est vite des dizaines de messages. Notre application web permet à un groupe de tout planifier au même endroit : sondage sur les dates, votes sur les activités et les lieux, liste de courses partagée et partage des dépenses.</p>
+                </section>
+                <section><h3>Ce que j'ai fait</h3>
+                    <ul>
+                        <li><strong>Seul profil data de l'équipe</strong> (2 développeurs, 1 administrateur réseau), je suis responsable de toute l'architecture de la base PostgreSQL.</li>
+                        <li><strong>Dictionnaire de données et MCD</strong> rédigés à partir de la liste de fonctionnalités validée par l'équipe.</li>
+                        <li><strong>Modèle à groupes permanents</strong> : un groupe contient plusieurs événements, pour ne pas recréer les membres à chaque sortie.</li>
                     </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-3">Cliquez sur les images pour agrandir</h4>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        <div class="relative group cursor-pointer gallery-thumb rounded-lg border border-slate-200 overflow-hidden bg-slate-100" onclick="openLightbox('itineraire', 0)">
-                            <img src="Ferroviaires.png" alt="Ferroviaires" class="w-full h-32 object-cover">
-                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><i data-lucide="zoom-in" class="text-white w-6 h-6"></i></div>
-                        </div>
-                    </div>
-                </div>
+                </section>
+                <section><h3>Stack</h3>
+                    <ul class="flex flex-wrap gap-2"><li class="tech">PostgreSQL</li><li class="tech">SQL</li><li class="tech">MCD / MLD</li><li class="tech">Dictionnaire de données</li></ul>
+                                    </section>
+                <section><h3>Résultat</h3>
+                    <p>Projet en cours (BUT3, semestre 5). Le dictionnaire de données et le MCD sont réalisés : ils servent de base au développement de toute l'équipe.</p>
+                </section>
             </div>
         </div>
-    </div>
+    </dialog>
 
-    <div id="modal-bdd" class="fixed inset-0 z-[150] hidden items-center justify-center opacity-0 transition-opacity duration-300">
-        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm cursor-pointer" onclick="closeModal('modal-bdd')"></div>
-        <div id="content-bdd" class="bg-white rounded-xl shadow-2xl w-[95%] max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 scale-95 transition-transform duration-300 custom-scrollbar">
-            <div class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-100 p-6 flex justify-between items-center z-20">
-                <h3 class="text-2xl font-bold text-slate-900">Modélisation BDD</h3>
-                <button onclick="closeModal('modal-bdd')" class="p-2 bg-slate-100 hover:bg-red-50 hover:text-red-600 rounded-full transition-colors text-slate-500"><i data-lucide="x" class="w-5 h-5"></i></button>
+    <!-- Yu-Gi-Oh -->
+    <dialog id="dlg-yugioh" class="dialog" aria-labelledby="dlg-yugioh-title">
+        <div class="dialog-panel">
+            <div class="dialog-header">
+                <h2 id="dlg-yugioh-title" class="dialog-title">Assistant de collection Yu-Gi-Oh!</h2>
+                <button type="button" class="dialog-close" data-close aria-label="Fermer"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-x"></use></svg></button>
             </div>
-            <div class="p-6 md:p-8 space-y-8">
-                <div class="flex flex-wrap gap-4 text-sm font-medium text-slate-700 bg-slate-50 p-4 rounded-lg border border-slate-100">
-                    <div class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-blue-600"></i> Octobre 2024 - Novembre 2024</div>
-                    <div class="w-px bg-slate-200 hidden md:block"></div>
-                    <div class="flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-blue-600"></i> 3 membres</div>
-                    <div class="w-px bg-slate-200 hidden md:block"></div>
-                    <div class="flex items-center gap-2"><i data-lucide="tag" class="w-4 h-4 text-blue-600"></i> Architecte Data</div>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">Contexte du projet</h4>
-                    <p class="text-slate-600 leading-relaxed mb-4">L'objectif de ce projet n'était pas de coder, mais de concevoir les plans. Tout comme on ne construit pas une maison sans plan d'architecte, on ne code pas une application sans avoir structuré parfaitement sa base de données. J'ai eu le rôle de concevoir cette fondation.</p>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">Comment j'ai structuré le système</h4>
-                    <ul class="list-disc pl-5 space-y-2 text-slate-600 mb-6">
-                        <li><strong>Une organisation logique :</strong> Avant d'allumer l'ordinateur, j'ai tout dessiné sur papier. Le but était de s'assurer qu'aucune information ne soit stockée en double (ce qu'on appelle la normalisation). Une information en double, c'est le meilleur moyen d'avoir un bug de mise à jour plus tard.</li>
-                        <li><strong>Des gardiens automatiques :</strong> J'ai programmé des règles de sécurité directement au cœur du système (des "déclencheurs"). Par exemple, si quelqu'un modifie une information sensible, le système note automatiquement dans un fichier caché "Qui" a fait quoi et "Quand". Le système protège aussi de lui-même les mots de passe.</li>
+            <div class="dialog-body">
+                <ul class="dialog-meta">
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-calendar"></use></svg>2026 · en cours</li>
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-user"></use></svg>Projet personnel</li>
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-tag"></use></svg>Conception &amp; développement</li>
+                </ul>
+                <section><h3>Contexte</h3>
+                    <p>Ma collection de cartes est répartie entre un PDF d'inventaire et des photos de cartes. Je voulais la centraliser et pouvoir l'interroger facilement, y compris en posant des questions en langage naturel.</p>
+                </section>
+                <section><h3>Ce que j'ai fait</h3>
+                    <ul>
+                        <li><strong>Base SQLite comme source de vérité</strong> : chaque carte y est enregistrée une seule fois, avec ses informations.</li>
+                        <li><strong>OCR</strong> sur les photos et documents de cartes pour en extraire le texte automatiquement.</li>
+                        <li><strong>RAG</strong> sur le PDF de la collection : le texte est transformé en vecteurs avec le modèle d'embeddings Nomic Embed Text, puis les passages les plus proches de la question sont retrouvés pour construire la réponse.</li>
+                        <li>Construit étape par étape, en Python.</li>
                     </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-3">Cliquez sur les images pour agrandir</h4>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        <div class="relative group cursor-pointer gallery-thumb rounded-lg border border-slate-200 overflow-hidden bg-slate-100" onclick="openLightbox('bdd', 0)">
-                            <img src="bd 1.png" alt="Modèle 1" class="w-full h-32 object-cover">
-                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><i data-lucide="zoom-in" class="text-white w-6 h-6"></i></div>
-                        </div>
-                        <div class="relative group cursor-pointer gallery-thumb rounded-lg border border-slate-200 overflow-hidden bg-slate-100" onclick="openLightbox('bdd', 1)">
-                            <img src="bd 2.png" alt="Modèle 2" class="w-full h-32 object-cover">
-                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><i data-lucide="zoom-in" class="text-white w-6 h-6"></i></div>
-                        </div>
-                    </div>
-                </div>
+                </section>
+                <section><h3>Stack</h3>
+                    <ul class="flex flex-wrap gap-2"><li class="tech">Python</li><li class="tech">SQLite</li><li class="tech">OCR</li><li class="tech">Nomic Embed Text</li><li class="tech">RAG</li></ul>
+                                    </section>
+                <section><h3>Résultat</h3>
+                    <p>Projet en cours, construit brique par brique : base SQLite, extraction OCR, puis recherche en langage naturel (RAG) sur la collection.</p>
+                </section>
             </div>
         </div>
-    </div>
+    </dialog>
 
-    <div id="modal-checksum" class="fixed inset-0 z-[150] hidden items-center justify-center opacity-0 transition-opacity duration-300">
-        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm cursor-pointer" onclick="closeModal('modal-checksum')"></div>
-        <div id="content-checksum" class="bg-white rounded-xl shadow-2xl w-[95%] max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 scale-95 transition-transform duration-300 custom-scrollbar">
-            <div class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-100 p-6 flex justify-between items-center z-20">
-                <h3 class="text-2xl font-bold text-slate-900">Calculateur Checksum</h3>
-                <button onclick="closeModal('modal-checksum')" class="p-2 bg-slate-100 hover:bg-red-50 hover:text-red-600 rounded-full transition-colors text-slate-500"><i data-lucide="x" class="w-5 h-5"></i></button>
+    <!-- Modélisation BDD -->
+    <dialog id="dlg-bdd" class="dialog" aria-labelledby="dlg-bdd-title">
+        <div class="dialog-panel">
+            <div class="dialog-header">
+                <h2 id="dlg-bdd-title" class="dialog-title">Base de données d'une plateforme de films</h2>
+                <button type="button" class="dialog-close" data-close aria-label="Fermer"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-x"></use></svg></button>
             </div>
-            <div class="p-6 md:p-8 space-y-8">
-                <div class="flex flex-wrap gap-4 text-sm font-medium text-slate-700 bg-slate-50 p-4 rounded-lg border border-slate-100">
-                    <div class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-slate-600"></i> Avril 2025 - Juin 2025</div>
-                    <div class="w-px bg-slate-200 hidden md:block"></div>
-                    <div class="flex items-center gap-2"><i data-lucide="user" class="w-4 h-4 text-slate-600"></i> Solo</div>
-                    <div class="w-px bg-slate-200 hidden md:block"></div>
-                    <div class="flex items-center gap-2"><i data-lucide="tag" class="w-4 h-4 text-slate-600"></i> Développeur Sécurité</div>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">Contexte du projet</h4>
-                    <p class="text-slate-600 leading-relaxed mb-4">Quand on télécharge un fichier important (comme une mise à jour ou un document de travail), il peut être abîmé par une mauvaise connexion ou piégé par un pirate informatique. J'ai donc développé, tout seul, un outil de sécurité pour vérifier que le fichier est bien l'original et 100% intact.</p>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">La technologie derrière l'outil</h4>
-                    <ul class="list-disc pl-5 space-y-2 text-slate-600 mb-6">
-                        <li><strong>L'empreinte digitale du fichier :</strong> Le programme scanne l'intérieur du fichier et calcule une longue suite de lettres et de chiffres (la signature). Si un pirate modifie ne serait-ce qu'une seule virgule dans le fichier, la signature change du tout au tout. C'est comme ça qu'on détecte le danger.</li>
-                        <li><strong>Ne pas planter l'ordinateur :</strong> Le plus gros défi était de vérifier des fichiers gigantesques (un film ou une sauvegarde de plusieurs Go). J'ai programmé l'outil pour qu'il "lise" le fichier par toutes petites bouchées de quelques kilo-octets. Grâce à ça, le programme fonctionne sans jamais ralentir ni remplir la mémoire vive de l'ordinateur.</li>
+            <div class="dialog-body">
+                <ul class="dialog-meta">
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-calendar"></use></svg>Octobre – novembre 2024</li>
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-users"></use></svg>Équipe de 3</li>
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-tag"></use></svg>Conception de la base</li>
+                </ul>
+                <section><h3>Contexte</h3>
+                    <p>Avant d'écrire la moindre ligne de code applicatif, il faut une base solide. L'objectif : concevoir la base de données d'une plateforme multi-sites de location et de vente de films en ligne.</p>
+                </section>
+                <section><h3>Ce que j'ai fait</h3>
+                    <ul>
+                        <li><strong>Modélisation complète</strong> : MCD, puis MLD et MPD.</li>
+                        <li><strong>Normalisation (3NF)</strong> : aucune information stockée en double, pour éviter les incohérences lors des mises à jour.</li>
+                        <li><strong>Triggers d'audit en PL/SQL</strong> : toute modification d'une donnée sensible est journalisée automatiquement (qui, quoi, quand).</li>
+                        <li><strong>Protection des mots de passe</strong> gérée directement dans la base, par trigger.</li>
                     </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-3">Cliquez sur les images pour agrandir</h4>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        <div class="relative group cursor-pointer gallery-thumb rounded-lg border border-slate-200 overflow-hidden bg-slate-100" onclick="openLightbox('checksum', 0)">
-                            <img src="Cheksum.png" alt="Checksum 1" class="w-full h-32 object-cover">
-                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><i data-lucide="zoom-in" class="text-white w-6 h-6"></i></div>
-                        </div>
-                        <div class="relative group cursor-pointer gallery-thumb rounded-lg border border-slate-200 overflow-hidden bg-slate-100" onclick="openLightbox('checksum', 1)">
-                            <img src="cheksum 2.png" alt="Checksum 2" class="w-full h-32 object-cover">
-                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><i data-lucide="zoom-in" class="text-white w-6 h-6"></i></div>
-                        </div>
+                </section>
+                <section><h3>Stack</h3>
+                    <ul class="flex flex-wrap gap-2"><li class="tech">SQL</li><li class="tech">PL/SQL</li><li class="tech">MCD / MLD / MPD</li><li class="tech">Triggers</li></ul>
+                                    </section>
+                <section><h3>Résultat</h3>
+                    <p>Un modèle de 16 tables (films, acteurs, sociétés de production, catégories, langues, clients, sites, locations, ventes, tarifs…), normalisé et prêt à être implémenté.</p>
+                </section>
+                <section><h3>Modèles</h3>
+                    <div class="gallery">
+                        <button type="button" class="thumb" data-gallery="bdd" data-full="assets/img/bdd-modele-1-1600.webp"><img src="assets/img/bdd-modele-1-640.webp" width="640" height="452" loading="lazy" decoding="async" alt="Modèle de données, vue 1"></button>
+                        <button type="button" class="thumb" data-gallery="bdd" data-full="assets/img/bdd-modele-2-1600.webp"><img src="assets/img/bdd-modele-2-640.webp" width="640" height="452" loading="lazy" decoding="async" alt="Modèle de données, vue 2"></button>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
-    </div>
+    </dialog>
 
-    <div id="modal-isicom" class="fixed inset-0 z-[150] hidden items-center justify-center opacity-0 transition-opacity duration-300">
-        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm cursor-pointer" onclick="closeModal('modal-isicom')"></div>
-        <div id="content-isicom" class="bg-white rounded-xl shadow-2xl w-[95%] max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 scale-95 transition-transform duration-300 custom-scrollbar">
-            <div class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-100 p-6 flex justify-between items-center z-20">
-                <h3 class="text-2xl font-bold text-slate-900">Architecture Réseau & VLANs (Stage ISICOM)</h3>
-                <button onclick="closeModal('modal-isicom')" class="p-2 bg-slate-100 hover:bg-red-50 hover:text-red-600 rounded-full transition-colors text-slate-500"><i data-lucide="x" class="w-5 h-5"></i></button>
+    <!-- Ferroviaire -->
+    <dialog id="dlg-ferroviaire" class="dialog" aria-labelledby="dlg-ferroviaire-title">
+        <div class="dialog-panel">
+            <div class="dialog-header">
+                <h2 id="dlg-ferroviaire-title" class="dialog-title">Itinéraires ferroviaires</h2>
+                <button type="button" class="dialog-close" data-close aria-label="Fermer"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-x"></use></svg></button>
             </div>
-            <div class="p-6 md:p-8 space-y-8">
-                <div class="flex flex-wrap gap-4 text-sm font-medium text-slate-700 bg-slate-50 p-4 rounded-lg border border-slate-100">
-                    <div class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-orange-600"></i> Janvier 2026</div>
-                    <div class="w-px bg-slate-200 hidden md:block"></div>
-                    <div class="flex items-center gap-2"><i data-lucide="building" class="w-4 h-4 text-orange-600"></i> ISICOM</div>
-                    <div class="w-px bg-slate-200 hidden md:block"></div>
-                    <div class="flex items-center gap-2"><i data-lucide="tag" class="w-4 h-4 text-orange-600"></i> Admin Sys & Réseau</div>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">Contexte du projet</h4>
-                    <p class="text-slate-600 leading-relaxed mb-4">Lors de mon stage chez ISICOM, on m'a confié la mission d'installer et de protéger le réseau informatique de plusieurs entreprises clientes. Le butt était d'organiser le trafic pour que tout soit fluide et bien rangé.</p>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">Ce que j'ai réalisé sur le terrain</h4>
-                    <ul class="list-disc pl-5 space-y-2 text-slate-600 mb-6">
-                        <li><strong>Découper le réseau en tranches :</strong> Si on mélange tous les appareils d'une entreprise sur un seul réseau, ça crée des embouteillages (et c'est risqué). J'ai donc créé des "VLANs", ce sont des réseaux virtuels séparés. Par exemple, un réseau pour les computers, et un réseau isolé pour les téléphones d'entreprise. Ça garantit que le son des appels reste parfait même quand internet est surchargé.</li>
-                        <li><strong>Mise en sécurité :</strong> J'ai isolé les appareils importants (comme les serveurs et les imprimantes) dans des zones fermées. Si l'ordinateur d'un employé attrape un virus, le virus ne pourra pas sauter dans la zone des serveurs grâce à mes réglages.</li>
+            <div class="dialog-body">
+                <ul class="dialog-meta">
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-calendar"></use></svg>Avril – juin 2025</li>
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-users"></use></svg>Équipe de 2</li>
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-tag"></use></svg>Développement de l'algorithme</li>
+                </ul>
+                <section><h3>Contexte</h3>
+                    <p>Trouver le trajet en train le plus rapide entre deux gares françaises, parmi des milliers de gares reliées entre elles.</p>
+                </section>
+                <section><h3>Ce que j'ai fait</h3>
+                    <ul>
+                        <li><strong>Algorithme de Dijkstra</strong> : il explore les gares par durée de trajet croissante depuis le départ, ce qui garantit le chemin le plus court sans tester toutes les combinaisons.</li>
+                        <li><strong>Réseau en listes d'adjacence</strong> : chaque gare ne stocke que ses gares voisines, ce qui limite fortement la mémoire utilisée.</li>
                     </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-3">Cliquez sur les images pour agrandir</h4>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        <div class="relative group cursor-pointer gallery-thumb rounded-lg border border-slate-200 overflow-hidden bg-slate-100" onclick="openLightbox('isicom', 0)">
-                            <img src="Isicom 1.jpg" alt="Config Isicom 1" class="w-full h-32 object-cover">
-                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><i data-lucide="zoom-in" class="text-white w-6 h-6"></i></div>
-                        </div>
-                        <div class="relative group cursor-pointer gallery-thumb rounded-lg border border-slate-200 overflow-hidden bg-slate-100" onclick="openLightbox('isicom', 1)">
-                            <img src="Isicom 2.jpg" alt="Config Isicom 2" class="w-full h-32 object-cover">
-                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><i data-lucide="zoom-in" class="text-white w-6 h-6"></i></div>
-                        </div>
-                        <div class="relative group cursor-pointer gallery-thumb rounded-lg border border-slate-200 overflow-hidden bg-slate-100" onclick="openLightbox('isicom', 2)">
-                            <img src="Isicom 3.webp" alt="Config Isicom 3" class="w-full h-32 object-cover">
-                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><i data-lucide="zoom-in" class="text-white w-6 h-6"></i></div>
-                        </div>
+                </section>
+                <section><h3>Stack</h3>
+                    <ul class="flex flex-wrap gap-2"><li class="tech">Graphes</li><li class="tech">Dijkstra</li><li class="tech">Maquettes UX</li></ul>
+                </section>
+                <section><h3>Résultat</h3>
+                    <p>Un trajet à travers toute la France est calculé en moins d'une seconde.</p>
+                </section>
+                <section><h3>Maquettes</h3>
+                    <div class="gallery">
+                        <button type="button" class="thumb" data-gallery="ferroviaire" data-full="assets/img/ferroviaire-graphe-1600.webp"><img src="assets/img/ferroviaire-graphe-640.webp" width="640" height="636" loading="lazy" decoding="async" alt="Maquettes du parcours utilisateur : consultation des lignes et recherche d'itinéraire"></button>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
-    </div>
+    </dialog>
 
-    <div id="lightbox" class="fixed inset-0 z-[200] hidden bg-slate-900/95 backdrop-blur-md flex-col items-center justify-center transition-opacity duration-300 opacity-0">
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-slate-300 hover:text-white transition-colors">
-            <i data-lucide="x" class="w-10 h-10"></i>
-        </button>
-        
-        <button onclick="prevImage(event)" class="absolute left-4 md:left-10 text-slate-400 hover:text-white transition-colors">
-            <i data-lucide="chevron-left" class="w-12 h-12"></i>
-        </button>
-        
-        <img id="lightbox-img" src="" class="max-h-[85vh] max-w-[85vw] object-contain rounded-lg shadow-2xl select-none">
-        
-        <button onclick="nextImage(event)" class="absolute right-4 md:right-10 text-slate-400 hover:text-white transition-colors">
-            <i data-lucide="chevron-right" class="w-12 h-12"></i>
-        </button>
+    <!-- Checksum -->
+    <dialog id="dlg-checksum" class="dialog" aria-labelledby="dlg-checksum-title">
+        <div class="dialog-panel">
+            <div class="dialog-header">
+                <h2 id="dlg-checksum-title" class="dialog-title">Calculateur de checksum IP</h2>
+                <button type="button" class="dialog-close" data-close aria-label="Fermer"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-x"></use></svg></button>
+            </div>
+            <div class="dialog-body">
+                <ul class="dialog-meta">
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-calendar"></use></svg>2024 – 2025 · SAÉ 2.03</li>
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-users"></use></svg>Équipe de 6</li>
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-tag"></use></svg>Développement</li>
+                </ul>
+                <section><h3>Contexte</h3>
+                    <p>Sur un réseau, la somme de contrôle (checksum) d'un en-tête IP permet de vérifier que les données n'ont pas été modifiées ou corrompues pendant le transport. En équipe de 6, nous avons créé une application qui la calcule automatiquement.</p>
+                </section>
+                <section><h3>Ce que nous avons fait</h3>
+                    <ul>
+                        <li><strong>Calcul du checksum</strong> à partir d'un en-tête IP saisi en hexadécimal, selon la norme RFC 791, avec affichage de l'en-tête complété.</li>
+                        <li><strong>Contrôle de saisie</strong> : un message d'erreur s'affiche si l'en-tête contient des caractères non hexadécimaux.</li>
+                        <li><strong>Interface sobre</strong> en Windows Forms, et poster de présentation du projet.</li>
+                    </ul>
+                </section>
+                <section><h3>Stack</h3>
+                    <ul class="flex flex-wrap gap-2"><li class="tech">C#</li><li class="tech">Windows Forms</li><li class="tech">Visual Studio</li><li class="tech">RFC 791</li></ul>
+                </section>
+                <section><h3>Résultat</h3>
+                    <p>Application fonctionnelle, testée avec des en-têtes corrects et incorrects.</p>
+                </section>
+                <section><h3>Captures</h3>
+                    <div class="gallery">
+                        <button type="button" class="thumb" data-gallery="checksum" data-full="assets/img/checksum-2-925.webp"><img src="assets/img/checksum-2-640.webp" width="640" height="347" loading="lazy" decoding="async" alt="Interface du calculateur de checksum"></button>
+                        <button type="button" class="thumb" data-gallery="checksum" data-full="assets/img/checksum-1-1400.webp"><img src="assets/img/checksum-1-640.webp" width="640" height="905" loading="lazy" decoding="async" alt="Poster de présentation du projet"></button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </dialog>
 
-        <p id="lightbox-counter" class="absolute bottom-6 text-slate-300 font-jetbrains tracking-widest text-sm"></p>
-    </div>
+    <!-- ISICOM -->
+    <dialog id="dlg-isicom" class="dialog" aria-labelledby="dlg-isicom-title">
+        <div class="dialog-panel">
+            <div class="dialog-header">
+                <h2 id="dlg-isicom-title" class="dialog-title">Stage ISICOM — réseaux &amp; VLAN</h2>
+                <button type="button" class="dialog-close" data-close aria-label="Fermer"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-x"></use></svg></button>
+            </div>
+            <div class="dialog-body">
+                <ul class="dialog-meta">
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-calendar"></use></svg>Janvier – mars 2026</li>
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-building"></use></svg>ISICOM · Nogent-sur-Oise</li>
+                    <li><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-tag"></use></svg>Technicien systèmes &amp; réseaux</li>
+                </ul>
+                <section><h3>Contexte</h3>
+                    <p>Mise en place et sécurisation des réseaux de plusieurs entreprises clientes.</p>
+                </section>
+                <section><h3>Ce que j'ai fait</h3>
+                    <ul>
+                        <li><strong>Segmentation en VLAN</strong> : un réseau par type d'équipement (postes, téléphonie, serveurs, imprimantes), pour isoler les flux et garder une téléphonie fluide.</li>
+                        <li><strong>pfSense</strong> : interfaces VLAN, DHCP et règles de pare-feu pour contrôler les échanges entre réseaux.</li>
+                        <li><strong>Switches UniFi</strong> : attribution des VLAN aux ports et tests de connectivité.</li>
+                        <li><strong>Support</strong> : diagnostic et résolution de demandes via GLPI, interventions chez les clients.</li>
+                    </ul>
+                </section>
+                <section><h3>Outils</h3>
+                    <ul class="flex flex-wrap gap-2"><li class="tech">pfSense</li><li class="tech">UniFi</li><li class="tech">Zabbix</li><li class="tech">GLPI</li><li class="tech">VLAN</li></ul>
+                </section>
+                <section><h3>Documents</h3>
+                    <p><a href="assets/resume-stage-isicom.pdf" download class="inline-flex items-center gap-2 font-semibold text-blue-700 hover:text-blue-800"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-download"></use></svg>Résumé détaillé du stage (PDF)</a></p>
+                </section>
+                <section><h3>Captures</h3>
+                    <div class="gallery">
+                        <button type="button" class="thumb" data-gallery="isicom" data-full="assets/img/isicom-1-1280.webp"><img src="assets/img/isicom-1-640.webp" width="640" height="360" loading="lazy" decoding="async" alt="Configuration réseau, vue 1"></button>
+                        <button type="button" class="thumb" data-gallery="isicom" data-full="assets/img/isicom-2-1005.webp"><img src="assets/img/isicom-2-640.webp" width="640" height="325" loading="lazy" decoding="async" alt="Configuration réseau, vue 2"></button>
+                        <button type="button" class="thumb" data-gallery="isicom" data-full="assets/img/isicom-3-1030.webp"><img src="assets/img/isicom-3-640.webp" width="640" height="424" loading="lazy" decoding="async" alt="Configuration réseau, vue 3"></button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </dialog>
 
-    <script>
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            const body = document.body;
-            setTimeout(() => {
-                loader.classList.add('opacity-0', 'pointer-events-none');
-                body.classList.remove('overflow-hidden');
-                setTimeout(() => { loader.remove(); }, 700);
-            }, 2500); 
-        });
+    <!-- Visionneuse d'images -->
+    <dialog id="lightbox" class="lightbox" aria-label="Visionneuse d'images">
+        <button type="button" class="lightbox-btn top-4 right-4" data-close aria-label="Fermer la visionneuse"><svg class="icon w-6 h-6" aria-hidden="true"><use href="#i-x"></use></svg></button>
+        <button type="button" class="lightbox-btn left-2 md:left-6 top-1/2 -translate-y-1/2" data-prev aria-label="Image précédente"><svg class="icon w-7 h-7" aria-hidden="true"><use href="#i-chevron-left"></use></svg></button>
+        <figure class="flex flex-col items-center gap-3 max-w-[92vw]">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" class="max-h-[82vh] max-w-full object-contain rounded-md shadow-2xl">
+            <figcaption class="text-sm text-slate-300 font-jetbrains"></figcaption>
+        </figure>
+        <button type="button" class="lightbox-btn right-2 md:right-6 top-1/2 -translate-y-1/2" data-next aria-label="Image suivante"><svg class="icon w-7 h-7" aria-hidden="true"><use href="#i-chevron-right"></use></svg></button>
+    </dialog>
 
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const items = entry.target.querySelectorAll('.skill-item');
-                    items.forEach((item, i) => {
-                        setTimeout(() => { item.classList.remove('opacity-0', 'translate-y-4'); }, i * 150); 
-                    });
-                    skillObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-
-        ['skills-dev', 'skills-infra', 'skills-design'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) skillObserver.observe(el);
-        });
-
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200', 'shadow-sm', 'py-4');
-                navbar.classList.remove('bg-transparent', 'py-6');
-            } else {
-                navbar.classList.add('bg-transparent', 'py-6');
-                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-200', 'shadow-sm', 'py-4');
-            }
-        });
-
-        const toggleBtn = document.getElementById('toggle-passions');
-        const content = document.getElementById('passions-content');
-        if(toggleBtn && content) {
-            toggleBtn.addEventListener('click', () => {
-                if (content.classList.contains('hidden')) {
-                    content.classList.remove('hidden');
-                    setTimeout(() => { content.classList.remove('opacity-0', 'translate-y-4'); }, 10);
-                } else {
-                    content.classList.add('opacity-0', 'translate-y-4');
-                    setTimeout(() => { content.classList.add('hidden'); }, 500); 
-                }
-            });
-        }
-
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            const contentId = modalId.replace('modal-', 'content-');
-            const content = document.getElementById(contentId);
-            
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                content.classList.remove('scale-95');
-                content.classList.add('scale-100');
-            }, 10);
-            
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            const contentId = modalId.replace('modal-', 'content-');
-            const content = document.getElementById(contentId);
-            
-            modal.classList.add('opacity-0');
-            content.classList.remove('scale-100');
-            content.classList.add('scale-95');
-            
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = 'auto';
-            }, 300);
-        }
-
-        const galleries = {
-            'covoiturage': ['Accueil.png', 'Rechercher.png', 'Mes annonces.png', 'Proposer un trajet.png', 'Mes réservations.png'],
-            'itineraire': ['Ferroviaires.png'],
-            'bdd': ['bd 1.png', 'bd 2.png'],
-            'checksum': ['Cheksum.png', 'cheksum 2.png'],
-            'isicom': ['Isicom 1.jpg', 'Isicom 2.jpg', 'Isicom 3.webp']
-        };
-
-        let currentGallery = [];
-        let currentIndex = 0;
-
-        function openLightbox(galleryKey, index) {
-            currentGallery = galleries[galleryKey];
-            currentIndex = index;
-            updateLightboxImage();
-            
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('hidden');
-            lightbox.classList.add('flex');
-            setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.add('opacity-0');
-            setTimeout(() => {
-                lightbox.classList.add('hidden');
-                lightbox.classList.remove('flex');
-            }, 300);
-        }
-
-        function nextImage(e) {
-            if(e) e.stopPropagation();
-            currentIndex = (currentIndex + 1) % currentGallery.length;
-            updateLightboxImage();
-        }
-
-        function prevImage(e) {
-            if(e) e.stopPropagation();
-            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-            updateLightboxImage();
-        }
-
-        function updateLightboxImage() {
-            const img = document.getElementById('lightbox-img');
-            const counter = document.getElementById('lightbox-counter');
-            img.src = currentGallery[currentIndex];
-            counter.innerText = (currentIndex + 1) + ' / ' + currentGallery.length;
-        }
-
-        document.getElementById('lightbox').addEventListener('click', function(e) {
-            if (e.target.id === 'lightbox') {
-                closeLightbox();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            const lightbox = document.getElementById('lightbox');
-            if (!lightbox.classList.contains('hidden')) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowRight') nextImage();
-                if (e.key === 'ArrowLeft') prevImage();
-            }
-        });
-
-        lucide.createIcons();
-
-        // SCRIPT FORMSPREE POUR ENVOI SANS RECHARGEMENT DE PAGE
-        document.getElementById("contact-form").addEventListener("submit", async function(event) {
-            event.preventDefault();
-            const form = event.target;
-            const btn = form.querySelector('button[type=submit]');
-            const data = new FormData(form);
-
-            btn.innerHTML = 'Envoi en cours...';
-            btn.classList.add('pointer-events-none');
-
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                });
-                
-                if (response.ok) {
-                    btn.innerHTML = 'Message envoyé ! <i data-lucide="check-circle" class="w-5 h-5"></i>';
-                    btn.classList.replace('bg-slate-900', 'bg-emerald-500');
-                    btn.classList.replace('hover:bg-slate-800', 'hover:bg-emerald-600');
-                    form.reset();
-                    if(typeof lucide !== 'undefined') lucide.createIcons();
-                } else {
-                    btn.innerHTML = 'Erreur lors de l\'envoi';
-                    btn.classList.replace('bg-slate-900', 'bg-red-500');
-                    btn.classList.remove('pointer-events-none');
-                }
-            } catch (error) {
-                btn.innerHTML = 'Erreur de connexion';
-                btn.classList.replace('bg-slate-900', 'bg-red-500');
-                btn.classList.remove('pointer-events-none');
-            }
-        });
-    </script>
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>
