@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rayane Halim · Étudiant data · Stage mars–juin 2027</title>
+<meta name="description" content="Rayane Halim, étudiant en BUT Informatique parcours données à l'IUT d'Amiens. SQL, PL/SQL, Python. Recherche un stage Data du 1er mars au 4 juin 2027.">
+<link rel="preload" href="fonts/zen-old-mincho-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/cover-1536.avif" imagesrcset="img/cover-860.avif 860w, img/cover-1536.avif 1536w" imagesizes="100vw" type="image/avif">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#sommaire-liste">Aller au sommaire</a>
+
+<!-- Texture et filtres partagés par toutes les planches -->
+<svg class="defs" aria-hidden="true" focusable="false">
+ <defs>
+  <!-- Bord d'encre irrégulier : déforme le contour d'une forme -->
+  <filter id="ink-edge" x="-10%" y="-10%" width="120%" height="120%">
+   <feTurbulence type="fractalNoise" baseFrequency="0.035 0.05" numOctaves="3" seed="4" result="n"/>
+   <feDisplacementMap in="SourceGraphic" in2="n" scale="38" xChannelSelector="R" yChannelSelector="G" result="d"/>
+   <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="9" result="g"/>
+   <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -9 0 0 0 7.4" result="holes"/>
+   <feComposite in="d" in2="holes" operator="in"/>
+  </filter>
+  <!-- Trame de points d'impression, taille fixe à l'écran -->
+  <pattern id="ink-dots" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+   <rect width="7" height="7" fill="#e10600"/>
+   <circle cx="3.5" cy="3.5" r="1.25" fill="#a80300"/>
+  </pattern>
+ </defs>
+</svg>
+
+<header class="bar">
+ <a class="mark" href="#couverture" aria-label="Rayane Halim, retour au début">R.H.</a>
+ <nav class="bar-r" aria-label="Actions">
+  <a class="bar-btn" href="../assets/CV_Rayane_HALIM.pdf">Mon CV</a>
+  <button class="bar-btn" id="sommaire-btn" type="button" aria-expanded="false" aria-controls="sommaire">Sommaire</button>
+ </nav>
+ <span class="progress" aria-hidden="true"><i id="progress"></i></span>
+</header>
+
+<div class="sommaire" id="sommaire" hidden>
+ <p class="sommaire-t">Volume 01 · Sommaire</p>
+ <ol id="sommaire-liste">
+  <li><a href="#couverture"><span>00</span>Couverture</a></li>
+  <li><a href="#profil"><span>01</span>Le profil</a></li>
+  <li><a href="#suite" class="soon"><span>02</span>Ma main <em>(à venir)</em></a></li>
+  <li><a href="#suite" class="soon"><span>03</span>Les projets <em>(à venir)</em></a></li>
+  <li><a href="#suite" class="soon"><span>04</span>Le parcours <em>(à venir)</em></a></li>
+  <li><a href="#suite" class="soon"><span>05</span>Hors des écrans <em>(à venir)</em></a></li>
+  <li><a href="#suite" class="soon"><span>06</span>Contact <em>(à venir)</em></a></li>
+ </ol>
+</div>
+
+<main>
+<!-- ============ PLANCHE 00 · COUVERTURE ============ -->
+<section class="cover" id="couverture" aria-label="Couverture">
+ <div class="cover-stage">
+  <div class="cover-frame">
+   <picture class="cover-pic">
+    <source type="image/avif" srcset="img/cover-860.avif 860w, img/cover-1536.avif 1536w" sizes="100vw">
+    <img src="img/cover-1536.webp" srcset="img/cover-860.webp 860w, img/cover-1536.webp 1536w" sizes="100vw" width="1536" height="864" alt="Planche gravée : la flèche de la cathédrale d'Amiens et ses gargouilles devant un soleil rouge qui se lève" fetchpriority="high">
+   </picture>
+  </div>
+  <div class="cover-text">
+   <p class="vol">Volume 01</p>
+   <h1><span class="w"><span>Rayane</span></span><span class="w"><span>Halim</span></span></h1>
+   <div class="cartouche">
+    <p class="who">Étudiant data · BUT Informatique, IUT d'Amiens</p>
+    <p class="when">Stage du <strong>1<sup>er</sup> mars au 4 juin 2027</strong></p>
+    <p class="what">SQL · PL/SQL · Python · conception de bases</p>
+    <div class="cta">
+     <a class="btn btn-ink" href="../assets/CV_Rayane_HALIM.pdf">Mon CV (PDF)</a>
+     <a class="btn" href="mailto:rayanehalim677@gmail.com">Me contacter</a>
+    </div>
+   </div>
+  </div>
+  <!-- Soleil vectoriel : il prend le relais du soleil dessiné et grossit en restant net -->
+  <svg class="ink-sun" id="sun-out" aria-hidden="true"><circle r="0" fill="url(#ink-dots)" filter="url(#ink-edge)"/></svg>
+ </div>
+</section>
+
+<!-- ============ PLANCHE 01 · LE PROFIL ============ -->
+<section class="profil" id="profil" aria-labelledby="profil-t">
+ <div class="page">
+  <!-- Case A : couloir, le soleil rouge au bord gauche -->
+  <figure class="case case-a">
+   <picture><source type="image/avif" srcset="img/dc-a-328.avif 328w, img/dc-a-656.avif 656w" sizes="(max-width:760px) 100vw, 58vw">
+    <img src="img/dc-a-656.webp" srcset="img/dc-a-328.webp 328w, img/dc-a-656.webp 656w" sizes="(max-width:760px) 100vw, 58vw" width="656" height="480" alt="Case gravée : un couloir de serveurs en perspective, un soleil rouge au bout" loading="lazy"></picture>
+   <h2 class="narr narr-title" id="profil-t"><span>Planche 01</span>Le profil</h2>
+   <div class="narr cap c1"><p class="k">Ce que je fais</p><p>Je pars d'un besoin encore flou et j'en fais une <strong>base de données propre</strong>, cohérente et facile à interroger.</p></div>
+  </figure>
+  <!-- Case B : gros plan sur une baie -->
+  <figure class="case case-b">
+   <picture><source type="image/avif" srcset="img/dc-b-320.avif 320w, img/dc-b-570.avif 570w" sizes="(max-width:760px) 100vw, 40vw">
+    <img src="img/dc-b-570.webp" srcset="img/dc-b-320.webp 320w, img/dc-b-570.webp 570w" sizes="(max-width:760px) 100vw, 40vw" width="570" height="360" alt="Case gravée : gros plan sur la façade d'une baie de serveurs" loading="lazy"></picture>
+   <div class="narr cap c2"><p class="k">Où j'en suis</p><p><strong>BUT Informatique, 3<sup>e</sup> année</strong>, parcours « Administration, gestion et exploitation des données », IUT d'Amiens.</p></div>
+  </figure>
+  <!-- Case C : insert, les pas et l'ombre -->
+  <figure class="case case-c">
+   <picture><source type="image/avif" srcset="img/dc-c-320.avif 320w, img/dc-c-500.avif 500w" sizes="(max-width:760px) 100vw, 40vw">
+    <img src="img/dc-c-500.webp" srcset="img/dc-c-320.webp 320w, img/dc-c-500.webp 500w" sizes="(max-width:760px) 100vw, 40vw" width="500" height="300" alt="Case gravée : des pas sur le sol brillant, une longue ombre" loading="lazy"></picture>
+   <div class="narr cap c3"><p class="k">Ce que je cherche</p><p>Un <strong>stage Data, BI ou bases de données</strong> du 1<sup>er</sup> mars au 4 juin 2027. Permis B, véhiculé (Creil / Amiens).</p></div>
+  </figure>
+  <!-- Case D : les chiffres -->
+  <dl class="case case-d">
+   <div><dt>3</dt><dd>projets data menés en équipe</dd></div>
+   <div><dt>3 mois</dt><dd>de stage déjà faits (ISICOM)</dd></div>
+   <div><dt>B2</dt><dd>en anglais · arabe courant</dd></div>
+  </dl>
+  <!-- Le même soleil vectoriel se resserre jusqu'au soleil dessiné de la case A -->
+  <svg class="ink-sun" id="sun-in" aria-hidden="true"><circle r="0" fill="url(#ink-dots)" filter="url(#ink-edge)"/></svg>
+ </div>
+</section>
+
+<section class="suite" id="suite">
+ <div class="card-peek" aria-hidden="true"></div>
+ <p class="suite-k">Planche 02 · Ma main</p>
+ <p class="suite-t">La suite arrive après ta validation de cette première scène.</p>
+</section>
+</main>
+
+<script src="vendor/lenis.min.js" defer></script>
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="main.js" defer></script>
+</body>
+</html>
